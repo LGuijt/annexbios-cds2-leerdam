@@ -1,4 +1,6 @@
 <?php
+define("BASEURL","http://localhost/");
+
 $view = '';
 
 if (!empty($_GET['view'])) {
