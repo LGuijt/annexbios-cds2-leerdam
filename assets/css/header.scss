@@ -1,0 +1,21 @@
+@import "./global";
+
+#mainHeader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 30vh;
+    background-color: red;
+}
+
+#upperHalf {
+    width: auto;
+    height: 18vh;
+    background-color: #ffffff;
+}
+#lowerHalf {
+    width: auto;
+    height: 12vh;
+    background-color: $boxFill;
+}

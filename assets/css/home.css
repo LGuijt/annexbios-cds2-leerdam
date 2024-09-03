@@ -1,1 +1,8 @@
-/*# sourceMappingURL=home.css.map */
+body {
+  margin: 0;
+}
+
+#parentContainer {
+  width: auto;
+  height: 200vh;
+}/*# sourceMappingURL=home.css.map */
