@@ -38,6 +38,8 @@
     width: auto;
     height: 12vh;
     background-color: $boxFill;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 
     form {
         display: flex;

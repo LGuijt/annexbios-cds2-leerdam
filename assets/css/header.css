@@ -46,6 +46,8 @@ body {
   width: auto;
   height: 12vh;
   background-color: #B97D46;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 #lowerHalf form {
   display: flex;
