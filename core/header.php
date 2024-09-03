@@ -37,18 +37,19 @@
             </div>
             <div id="menu">
                 <a href="">FILM AGENDA</a>
-                <a href="agenda">ALLE VESTIGINGEN</a>
-                <a href="bestel">CONTACT</a>
+                <a href="">ALLE VESTIGINGEN</a>
+                <a href="">CONTACT</a>
             </div>
         </div>
         <div id="lowerHalf">
-            <form>
-                <div>KOOP JE TICKETS</div>
-                <select>
-                    <option>film 1</option>
-                    <option>film 2</option>
+            <form method="post" action="bestel.php">
+                <div id="tekst">KOOP JE TICKETS</div>
+                <select name="filmkeuze">
+                    <option>Kies je film</option>
+                    <option value="1">film 1</option>
+                    <option value="2">film 2</option>
                 </select>
-                <input type="submit" value="Bestel TICKETS">
+                <input type="submit" value="BESTEL TICKETS">
             </form>
         </div>
     </div>
