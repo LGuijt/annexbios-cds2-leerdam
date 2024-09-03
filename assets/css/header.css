@@ -42,17 +42,40 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
+#upperHalf #menu a {
+  text-decoration: none;
+  color: black;
+}
 
 #lowerHalf {
   width: auto;
   height: 12vh;
   background-color: #B97D46;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1.5fr;
+  color: white;
 }
 #lowerHalf form {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
+}
+#lowerHalf select {
+  background-color: #D0A47C;
+  border: none;
+  height: 40%;
+  color: white;
+  width: 150px;
+}
+#lowerHalf select option:focus {
+  color: black;
+}
+#lowerHalf input {
+  background-color: white;
+  border: none;
+  height: 40%;
+  color: #D0A47C;
+  width: 150px;
+  font-family: "latobold", sans-serif;
 }/*# sourceMappingURL=header.css.map */
