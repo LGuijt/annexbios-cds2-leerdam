@@ -1,5 +1,14 @@
+@font-face {
+  font-family: "latomedium";
+  src: url(./fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: "latobold";
+  src: url(./fonts/Lato-Bold.ttf);
+}
 body {
   margin: 0;
+  font-family: "latomedium", sans-serif;
 }
 
 #parentContainer {

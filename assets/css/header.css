@@ -1,5 +1,14 @@
+@font-face {
+  font-family: "latomedium";
+  src: url(./fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: "latobold";
+  src: url(./fonts/Lato-Bold.ttf);
+}
 body {
   margin: 0;
+  font-family: "latomedium", sans-serif;
 }
 
 #mainHeader {
@@ -16,10 +25,34 @@ body {
   width: auto;
   height: 18vh;
   background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 0.75fr 1fr 0.25fr;
+}
+#upperHalf #logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+#upperHalf img {
+  height: 16vh;
+}
+#upperHalf #menu {
+  grid-column: 3;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 #lowerHalf {
   width: auto;
   height: 12vh;
   background-color: #B97D46;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+#lowerHalf form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
 }/*# sourceMappingURL=header.css.map */
