@@ -12,23 +12,48 @@ body {
 }
 
 #parentContainer {
-  width: auto;
-  height: 200vh;
+  width: 100%;
+  height: 400vh;
   position: relative;
   z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#imageContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute; /* Ensure it stays within the parent container */
+  top: 0;
+  left: 0;
   background-image: url("../img/biosstoelen.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  z-index: 0; /* Below the opacity box */
 }
 
 #opacityBox {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.75);
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
+}
+
+#welcomeBox {
+  margin-top: 20vh;
+  position: relative;
+  z-index: 2;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  background-color: #B97D46;
+  width: 75%;
+  height: 40vh;
+  padding: 40px;
 }/*# sourceMappingURL=home.css.map */
