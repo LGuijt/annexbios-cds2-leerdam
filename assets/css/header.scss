@@ -13,9 +13,38 @@
     width: auto;
     height: 18vh;
     background-color: #ffffff;
+    display: grid;
+    grid-template-columns: 1fr 0.75fr 1fr 0.25fr;
+
+    #logo{
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    img{
+        height: 16vh
+    }
+
+    #menu{
+        grid-column: 3;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
 }
+
 #lowerHalf {
     width: auto;
     height: 12vh;
     background-color: $boxFill;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    form {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+    }
 }
