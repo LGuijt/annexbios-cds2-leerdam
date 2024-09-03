@@ -22,6 +22,9 @@ body {
   height: 46vh;
   background-color: #707070;
 }
+#upperHalf2 img {
+  height: 105%;
+}
 
 #lowerHalf2 {
   width: auto;
