@@ -33,7 +33,7 @@
     <div id="mainHeader">
         <div id="upperHalf">
             <div id="logo">
-                <img src="../assets/img/logo.png">
+                <img src="./assets/img/logo.png">
             </div>
             <div id="menu">
                 <a href="">FILM AGENDA</a>
