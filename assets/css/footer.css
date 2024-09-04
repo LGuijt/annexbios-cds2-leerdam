@@ -21,6 +21,7 @@ body {
   width: auto;
   height: 46vh;
   background-color: #707070;
+  color: white;
   display: grid;
   grid-template-columns: 0.25fr 1fr 1fr 1fr 1fr;
 }
@@ -29,7 +30,6 @@ body {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   align-items: center;
-  color: white;
   grid-column: 2;
   padding-top: 5%;
   max-width: 90%;
@@ -44,29 +44,38 @@ body {
   padding: 5px 10px;
   width: 90px;
 }
-#upperHalf2 #footernav {
+#upperHalf2 #footernav, #upperHalf2 #footersocial {
   display: grid;
-  color: white;
   align-content: center;
+  grid-template-rows: 1fr 1fr 1fr;
 }
-#upperHalf2 #footernav #navtop {
+#upperHalf2 #footernav #navtop, #upperHalf2 #footernav #socialtop, #upperHalf2 #footersocial #navtop, #upperHalf2 #footersocial #socialtop {
   font-size: 25px;
   font-family: "latobold";
-  padding-bottom: 5%;
+  padding-left: 5%;
+  align-self: flex-end;
+  padding-bottom: 4%;
+}
+#upperHalf2 #footernav #navlinks, #upperHalf2 #footernav #sociallinks, #upperHalf2 #footersocial #navlinks, #upperHalf2 #footersocial #sociallinks {
+  display: grid;
+  padding-top: 4%;
   padding-left: 5%;
 }
-#upperHalf2 #footernav #navlinks {
-  display: grid;
-}
-#upperHalf2 #footernav a {
+#upperHalf2 #footernav a, #upperHalf2 #footersocial a {
   color: white;
   text-decoration: none;
-  padding: 1%;
-  padding-left: 5%;
+}
+#upperHalf2 #footernav img, #upperHalf2 #footersocial img {
+  height: 35px;
+}
+#upperHalf2 #footernav #sociallinks, #upperHalf2 #footersocial #sociallinks {
+  grid-template-columns: 1fr 1fr 1fr 4fr;
 }
 #upperHalf2 #track {
   height: 50vh;
   z-index: 1;
+  justify-self: end;
+  opacity: 0.5;
 }
 
 #lowerHalf2 {
@@ -75,4 +84,14 @@ body {
   height: 4vh;
   background-color: black;
   z-index: 2;
+  color: white;
+  display: grid;
+  grid-template-columns: 0.25fr 4fr;
+}
+#lowerHalf2 #disclaimer {
+  grid-column: 2;
+}
+#lowerHalf2 a {
+  color: white;
+  text-decoration: none;
 }/*# sourceMappingURL=footer.css.map */
