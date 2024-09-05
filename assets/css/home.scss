@@ -1,8 +1,8 @@
 @import "./global";
 
-#parentContainer {
+.parentContainer {
     width: 100%;
-    height: 400vh;
+    height: 200vh;
     position: relative;
     z-index: 0;
     display: flex;
@@ -19,7 +19,6 @@
     background-image: url('../img/biosstoelen.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
     background-attachment: fixed;
     z-index: 0; /* Below the opacity box */
 }
@@ -63,9 +62,54 @@
     position: relative;
     z-index: 2;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: white;
     width: 75%;
-    height: 70vh;
+    height: 65vh;
     padding: 20px 40px 20px 40px;
+}
+
+#informationBox {
+    display: flex;
+    flex-direction: column;
+}
+
+#information {
+    width: 35vw;
+    height: 28vh;
+    background-color: $boxFill;
+}
+
+#contactBox {
+    padding-top: 2vw;
+}
+
+.contactRow {
+    padding-left: 2vw;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    margin-bottom: 2vh;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+p.infoP {
+    margin-left: 1vw;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: white;
+}
+
+#aproachText {
+    padding-left: 2vw;
+}
+
+#blackBackground {
+    width: 100%;
+    height: 200vh;
+    background-color: black;
 }

@@ -1,6 +1,6 @@
 <?php include 'core/header.php'; ?>
 
-<div id="parentContainer" style="margin-top:30vh;">
+<div class="parentContainer" style="margin-top:30vh;">
     <div id="imageContainer">
         <div id="opacityBox"></div>
     </div>
@@ -14,7 +14,7 @@
     <div id="locationBox">
         <div id="informationBox">
             <div id="mapsImage">
-                <div style="text-decoration:none; overflow:hidden;max-width:100%;width:40vw;height:40vh;">
+                <div style="text-decoration:none; overflow:hidden;max-width:100%;width:35vw;height:35vh;">
                     <div id="display-google-map" style="height:100%; width:100%;max-width:100%;"><iframe
                             style="height:100%;width:100%;border:0;" frameborder="0"
                             src="https://www.google.com/maps/embed/v1/place?q=Techniekweg+6+Leerdam&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"></iframe>
@@ -29,10 +29,33 @@
                     </style>
                 </div>
             </div>
-            <div id="information"></div>
+            <div id="information">
+                <div id="contactBox">
+                    <div class="contactRow">
+                        <img id="mapsImage" src="./assets/img/maps.png">
+                        <div class="info">
+                            <p class="infoP">Techniekweg 6</p>
+                            <p class="infoP">4143 HV Leerdam</p>
+                        </div>
+                    </div>
+                    <div class="contactRow">
+                        <img id="phoneImage" src="./assets/img/phone.png">
+                        <div class="info">
+                            <p class="infoP">0345-637987</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="aproachText">
+                    <p style="font-size: 20px;color:white;margin-block-start:0;margin-block-end:0;">BEREIKBAARHEID</p>
+                    <p style="color:white;margin-block-start:0;margin-block-end:0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolor quo at quisquam cupiditate est architecto, laboriosam temporibus alias necessitatibus!</p>
+                </div>
+            </div>
         </div>
-        <div id="locationImage"></div>
+        <img id="locationImage" src="./assets/img/locatie.png" style="height:63vh;margin-left:2vw;">
     </div>
+</div>
+<div class="parentContainer">
+<div id="blackBackground"></div>
 </div>
 
 <?php include 'core/footer.php'; ?>
