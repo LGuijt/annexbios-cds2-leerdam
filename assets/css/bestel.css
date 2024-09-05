@@ -1,1 +1,22 @@
-/*# sourceMappingURL=bestel.css.map */
+@font-face {
+  font-family: "latomedium";
+  src: url(./fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: "latobold";
+  src: url(./fonts/Lato-Bold.ttf);
+}
+body {
+  margin: 0;
+  font-family: "latomedium", sans-serif;
+}
+
+#bestelpagina {
+  width: 100%;
+  top: 30vh;
+  position: relative;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}/*# sourceMappingURL=bestel.css.map */
