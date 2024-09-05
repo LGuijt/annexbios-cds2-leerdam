@@ -55,5 +55,28 @@ body {
   background-color: #B97D46;
   width: 75%;
   height: 40vh;
-  padding: 40px;
+  padding: 20px 40px 20px 40px;
+}
+
+#referButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  height: 5vh;
+  background-color: white;
+  color: #B97D46;
+  font-size: 20px;
+}
+
+#locationBox {
+  margin-top: 20vh;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 75%;
+  height: 70vh;
+  padding: 20px 40px 20px 40px;
 }/*# sourceMappingURL=home.css.map */
