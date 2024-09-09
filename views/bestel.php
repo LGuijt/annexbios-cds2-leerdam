@@ -8,14 +8,14 @@
             <select name="datum">
                 <option>DATUM</option>
                 <?php
-                $startdate=strtotime("today");
-                $enddate=strtotime("+14 days", $startdate);
-                
+                $startdate = strtotime("today");
+                $enddate = strtotime("+14 days", $startdate);
+
                 while ($startdate < $enddate) {
                     ?>
                     <option value="<?= date("Y-m-d", $startdate); ?>"><?= date("d-m", $startdate); ?></option>
                     <?php
-                  $startdate = strtotime("+1 day", $startdate);
+                    $startdate = strtotime("+1 day", $startdate);
                 }
                 ?>
             </select>
@@ -29,7 +29,7 @@
         </div>
         <div id="stappen">
             <div id="stapeen">
-                <div>STAP 1: KIES JE TICKET</div>
+                <div class="staptitel">STAP 1: KIES JE TICKET</div>
                 <div id="tickettabel">
                     <div id="prijstop">
                         <div>TYPE</div>
@@ -77,51 +77,59 @@
                     </div>
                 </div>
                 <div id="voucher">
-                    <div>VOUCHERCODE <input type="text" name="voucher"> <button>TOEVOEGEN</button></div>
+                    <div>VOUCHERCODE</div>
+                    <input type="text" name="voucher" placeholder="code">
+                    <button>TOEVOEGEN</button>
                 </div>
             </div>
             <div id="staptwee">
-                <div>STAP 2: KIES JE STOEL</div>
+                <div class="staptitel">STAP 2: KIES JE STOEL</div>
             </div>
             <div id="stapdrie">
-                <div>STAP 3: CONTROLEER JE BESTELLING</div>
+                <div class="staptitel">STAP 3: CONTROLEER JE BESTELLING</div>
                 <div id="controlebox">
-                    <div><img alt="plaatje van de film"></div>
-                    <div>filmnaam</div>
+                    <div id="controleposter"><img alt="plaatje van de film" src="https://placehold.co/160x240"></div>
+                    <div id="controletitel"><span class="bold">filmnaam</span></div>
                     <div>Kijkwijzercontainer</div>
-                    <div>Bioscoop: Leerdam zaal (?)</div>
-                    <div>Wanneer: </div>
-                    <div>Stoelen: Rij ?, stoel ?</div>
-                    <div>Tickets:</div>
-                    <div>Totaal ? ticket(s): </div>
+                    <div><span class="bold">Bioscoop:</span> Leerdam (zaal ?)</div>
+                    <div><span class="bold">Wanneer:</span> </div>
+                    <div><span class="bold">Stoelen:</span> Rij ?, stoel ?</div>
+                    <div><span class="bold">Tickets:</span></div>
+                    <div id="controletotaal"><span class="bold">Totaal ? ticket(s):</span> </div>
                 </div>
             </div>
             <div id="stapvier">
-                <div>STAP 4: Vul je gegevens</div>
+                <div class="staptitel">STAP 4: Vul je gegevens</div>
                 <div id="gegevens">
-                    <div placeholder="Voornaam"></div>
-                    <div placeholder="Achternaam"></div>
-                    <div placeholder="E-mailadres*"></div>
-                    <div placeholder="E-mailadres*"></div>
+                    <input type="text" name="voornaam" placeholder="Voornaam"></>
+                    <input type="text" name="achternaam" placeholder="Achternaam"></>
+                    <input type="text" name="email" placeholder="E-mailadres*" style="grid-column: 1/ span 2;"></>
+                    <input type="text" name="emailtoo" placeholder="E-mailadres*" style="grid-column: 1/ span 2;"></>
                 </div>
             </div>
             <div id="stapvijf">
-                <div>STAP 5: KIES JE BETAALWIJZE</div>
+                <div class="staptitel">STAP 5: KIES JE BETAALWIJZE</div>
                 <div id="betaalwijze">
-                    <input type="checkbox" name="betaalwijze" value="biosbon"><img alt="bioscoopbon" src="./assets/img/biosbon.png">
-                    <input type="checkbox" name="betaalwijze" value="maestro"><img alt="maestro" src="./assets/img/maestro.png">
-                    <input type="checkbox" name="betaalwijze" value="ideal"><img alt="ideal" src="./assets/img/ideal.png">
+                    <input type="checkbox" name="betaalwijze" value="biosbon"><img alt="bioscoopbon"
+                        src="./assets/img/biosbon.png">
+                    <input type="checkbox" name="betaalwijze" value="maestro"><img alt="maestro"
+                        src="./assets/img/maestro.png">
+                    <input type="checkbox" name="betaalwijze" value="ideal"><img alt="ideal"
+                        src="./assets/img/ideal.png">
                 </div>
-            <input type="checkbox" name="voorwaarden" value="voorwaarden">Ik ga akkoord met de <a href="#">algemene voorwaarden</a>
+                <div id="voorwaarden">
+                    <input type="checkbox" name="voorwaarden" value="voorwaarden">
+                    <div>Ik ga akkoord met de <a href="#">algemene voorwaarden</a></div>
+                </div>
             </div>
         </div>
         <div id="filminfo">
-            <div><img alt="filmposter"></div>
+            <div><img alt="filmposter" src="https://placehold.co/200x300"></div>
             <div id="filmomschrijving">
-                <div>filmnaam</div>
-                <div>ratings</div>
-                <div>releasedatum</div>
-                <div>filmomschrijving</div>
+                <div id="infotitel">filmnaam</div>
+                <div id="inforatings">ratings</div>
+                <div id="infodatum">releasedatum</div>
+                <div id="infoomschrijving">filmomschrijving</div>
             </div>
         </div>
         <div id="bestelbutton">
