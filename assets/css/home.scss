@@ -155,7 +155,7 @@ p.infoP {
 }
 
 #filmsBox {
-width: 5vw;
+width: 6vw;
 display: flex;
 }
 #thisWeekBox {
@@ -163,11 +163,11 @@ display: flex;
     display: flex;
 }
 #todayBox {
-    width: 10vw;
+    width: 8vw;
     display: flex;
 }
 #categoryBox {
-    width: 15vw;
+    width: 12vw;
     display: flex;
     flex-direction: row;
 }
@@ -175,4 +175,23 @@ display: flex;
 #categories {
     border: none;
     color: $boxFill;
+}
+
+#movieContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.movieRow {
+    display: flex;
+    flex-direction: column;
+    margin-top: 7.5vh;
+}
+
+.movieColumn {
+    width: 13vw;
+    height: 75vh;
+    background-color: white;
+    z-index: 1;
+    margin: 0.2vw 0.2vw 0.2vw 0.2vw;
 }

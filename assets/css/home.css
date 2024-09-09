@@ -9,6 +9,7 @@
 body {
   margin: 0;
   font-family: "latomedium", sans-serif;
+  overflow-x: hidden;
 }
 
 .parentContainer {
@@ -165,7 +166,7 @@ p.infoP {
 }
 
 #filmsBox {
-  width: 5vw;
+  width: 6vw;
   display: flex;
 }
 
@@ -175,12 +176,12 @@ p.infoP {
 }
 
 #todayBox {
-  width: 10vw;
+  width: 8vw;
   display: flex;
 }
 
 #categoryBox {
-  width: 15vw;
+  width: 12vw;
   display: flex;
   flex-direction: row;
 }
@@ -188,4 +189,23 @@ p.infoP {
 #categories {
   border: none;
   color: #B97D46;
+}
+
+#movieContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.movieRow {
+  display: flex;
+  flex-direction: column;
+  margin-top: 7.5vh;
+}
+
+.movieColumn {
+  width: 13vw;
+  height: 75vh;
+  background-color: white;
+  z-index: 1;
+  margin: 0.2vw 0.2vw 0.2vw 0.2vw;
 }/*# sourceMappingURL=home.css.map */

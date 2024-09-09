@@ -73,10 +73,24 @@
             </div>
             <div class="whiteBox" id="categoryBox">
                 <img src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">CATEGORIE
-                <div style="width:3vw;"></div>
+                <div style="width:1.8vw;"></div>
                 <div id="dropDownArrow" style="transform: scaleX(2);">V</div>
             </div>
         </div>
+    </div>
+
+    <div id="movieContainer">
+        <?php
+        for ($i = 0; $i < 6; $i++) {
+            ?>
+            <div class="movieRow"><?php
+            for ($j = 0; $j < 2; $j++) {
+                ?>
+                    <div class="movieColumn"></div><?php
+            }
+            ?></div><?php
+        }
+        ?>
     </div>
 </div>
 
