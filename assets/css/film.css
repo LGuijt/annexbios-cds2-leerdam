@@ -1,5 +1,14 @@
+.filmpagina {
+  height: 100vw;
+  position: relative;
+  top: 30vh;
+  color: #B97D46;
+  background-color: black;
+}
+
 #titlebox {
-  background-color: #B97D46;
-  height: 20;
-  width: 30;
+  background-color: white;
+  height: 10vh;
+  width: 100vh;
+  text-align: center;
 }/*# sourceMappingURL=film.css.map */
