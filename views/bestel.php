@@ -30,10 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </select>
             <select name="tijd">
                 <option>TIJD</option>
-                <option>12:00</option>
-                <option>15:00</option>
-                <option>18:00</option>
-                <option>21:00</option>
+                <option value="<?= date("H:i:s", $playtime)?>"><?= date("H:i", $playtime)?></option>
             </select>
         </div>
         <div id="stappen">
