@@ -1,23 +1,32 @@
 <?php include 'core/header.php'; ?>
 
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $filmkeuze = $_POST['filmkeuze'];
+
+
+    foreach ($moviedata as $movie) {
+        if ($movie['api_id'] == $filmkeuze) {
+            $filmnaam = $movie['title'];
+        }
+    }
+
+    foreach ($locationdata as $location) {
+        if ($location['movie_id'] == $filmkeuze) {
+            $playtime = $location['play_time'];
+        }
+    }
+    $playtime = strtotime($playtime);
+}
+?>
 <div id="bestelpagina">
     <form id="container">
         <div id="titel">TICKETS BESTELLEN</div>
         <div id="datumtijd">
-            <div id="filmname">filmnaam</div>
+            <div id="filmname"><?= $filmnaam ?></div>
             <select name="datum">
                 <option>DATUM</option>
-                <?php
-                $startdate = strtotime("today");
-                $enddate = strtotime("+14 days", $startdate);
-
-                while ($startdate < $enddate) {
-                    ?>
-                    <option value="<?= date("Y-m-d", $startdate); ?>"><?= date("d-m", $startdate); ?></option>
-                    <?php
-                    $startdate = strtotime("+1 day", $startdate);
-                }
-                ?>
+                <option value="<?= date("Y-m-d", $playtime); ?>"><?= date("d-m", $playtime) ?></option>
             </select>
             <select name="tijd">
                 <option>TIJD</option>
@@ -101,7 +110,7 @@
             <div id="stapvier">
                 <div class="staptitel">STAP 4: Vul je gegevens</div>
                 <div id="gegevens">
-                    <input type="text" name="voornaam" placeholder="Voornaam"></>
+                    <input type="text" name="voornaam" placeholder="Voornaam"></p>
                     <input type="text" name="achternaam" placeholder="Achternaam"></>
                     <input type="text" name="email" placeholder="E-mailadres*" style="grid-column: 1/ span 2;"></>
                     <input type="text" name="emailtoo" placeholder="E-mailadres*" style="grid-column: 1/ span 2;"></>

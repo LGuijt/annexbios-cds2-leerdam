@@ -55,9 +55,13 @@
                     <option>Kies je film</option>
                     <?php 
                     foreach ($moviedata as $movie) {
-                        ?>
-                        <option value="<?= $movie['api_id']; ?>"><?= $movie['title']; ?></option>
-                        <?php
+                        foreach ($locationdata as $location) {
+                            if ($location["id"] == 3 && $location["movie_id"] == $movie["api_id"]) {
+                                ?>
+                                <option value="<?= $movie['api_id']; ?>"><?= $movie['title']; ?></option>
+                                <?php
+                            }
+                        }
                     }
                     ?>
                 </select>
