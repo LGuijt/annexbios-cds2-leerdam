@@ -56,7 +56,7 @@
         <img id="locationImage" src="./assets/img/locatie.png" style="height:63vh;margin-left:2vw;">
     </div>
 </div>
-<div class="parentContainer">
+<div class="parentContainer" style="height: 210vh;">
     <div id="blackBackground"></div>
     <div id="whiteBoxesContainer">
         <div id="titleBox">FILM AGENDA</div>
@@ -86,12 +86,26 @@
             <div class="movieRow"><?php
             for ($j = 0; $j < 2; $j++) {
                 ?>
-                    <div class="movieColumn"></div><?php
-            }
-            ?></div><?php
-        }
-        ?>
+                    <div class="movieColumn">
+                        <img id="movieImage" src="https://placehold.co/254x402">
+                        <div style="padding: .75vw;">
+                            <div id="movieTitle">JURASSIC WORLD: <div style="font-size: 0.9em;">FALLEN KINGDOM</div>
+                            </div>
+                            <div id="starContainer">
+                                <?php for ($k = 0; $k < 5; $k++) { ?>
+                                    <img class="star" src="./assets/img/star_filled.png">
+                                <?php } ?>
+                            </div>
+                            <div id="releaseText">Release: 9/09/2024</div>
+                            <div id="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum
+                                perferendis iste sunt, et minima mollitia voluptatem quisquam.</div>
+                            <div id="ticketsButton">MEER INFO & TICKETS</div>
+                        </div>
+                    </div><?php } ?>
+            </div>
+        <?php } ?>
     </div>
+    <div id="allFilmsButton">BEKIJK ALLE FILMS</div>
 </div>
 
 <?php include 'core/footer.php'; ?>
