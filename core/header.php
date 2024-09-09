@@ -30,6 +30,13 @@
 </head>
 
 <body>
+    <?php
+    $file_json = file_get_contents('assets/json/dummylocation.json');
+    $locationdata = json_decode($file_json, true);
+
+    $file_json = file_get_contents('assets/json/dummymovie.json');
+    $moviedata = json_decode($file_json, true);
+    ?>
     <div id="mainHeader">
         <div id="upperHalf">
             <div id="logo">
@@ -42,12 +49,21 @@
             </div>
         </div>
         <div id="lowerHalf">
-            <form method="post" action="bestel.php">
+            <form method="post" action="bestel">
                 <div id="tekst">KOOP JE TICKETS</div>
                 <select name="filmkeuze">
                     <option>Kies je film</option>
-                    <option value="1">film 1</option>
-                    <option value="2">film 2</option>
+                    <?php 
+                    foreach ($moviedata as $movie) {
+                        foreach ($locationdata as $location) {
+                            if ($location["id"] == 3 && $location["movie_id"] == $movie["api_id"]) {
+                                ?>
+                                <option value="<?= $movie['api_id']; ?>"><?= $movie['title']; ?></option>
+                                <?php
+                            }
+                        }
+                    }
+                    ?>
                 </select>
                 <input type="submit" value="BESTEL TICKETS">
             </form>
