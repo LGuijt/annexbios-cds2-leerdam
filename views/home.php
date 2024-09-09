@@ -47,7 +47,9 @@
                 </div>
                 <div id="aproachText">
                     <p style="font-size: 20px;color:white;margin-block-start:0;margin-block-end:0;">BEREIKBAARHEID</p>
-                    <p style="color:white;margin-block-start:0;margin-block-end:0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolor quo at quisquam cupiditate est architecto, laboriosam temporibus alias necessitatibus!</p>
+                    <p style="color:white;margin-block-start:0;margin-block-end:0;">Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Mollitia dolor quo at quisquam cupiditate est architecto,
+                        laboriosam temporibus alias necessitatibus!</p>
                 </div>
             </div>
         </div>
@@ -55,7 +57,41 @@
     </div>
 </div>
 <div class="parentContainer">
-<div id="blackBackground"></div>
+    <div id="blackBackground"></div>
+    <div id="whiteBoxesContainer">
+        <div id="titleBox">FILM AGENDA</div>
+        <div id="filters">
+            <img id="settingsImage" src="./assets/img/settings.png">
+            <div class="whiteBox" id="filmsBox">
+                <img src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">FILMS
+            </div>
+            <div class="whiteBox" id="thisWeekBox">
+                <img src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">DEZE WEEK
+            </div>
+            <div class="whiteBox" id="todayBox">
+                <img src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">VANDAAG
+            </div>
+            <div class="whiteBox" id="categoryBox">
+                <img src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">CATEGORIE
+                <div style="width:1.8vw;"></div>
+                <div id="dropDownArrow" style="transform: scaleX(2);">V</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="movieContainer">
+        <?php
+        for ($i = 0; $i < 6; $i++) {
+            ?>
+            <div class="movieRow"><?php
+            for ($j = 0; $j < 2; $j++) {
+                ?>
+                    <div class="movieColumn"></div><?php
+            }
+            ?></div><?php
+        }
+        ?>
+    </div>
 </div>
 
 <?php include 'core/footer.php'; ?>
