@@ -1,0 +1,81 @@
+[{
+    "api_id": 1,
+    "imdb_id": "tt1234567",
+    "title": "The Galactic Odyssey",
+    "description": "A thrilling space adventure where a group of astronauts embarks on a journey to the edge of the universe.",
+    "image": "https://placehold.co/600x400",
+    "rating": 8.7,
+    "length": 142,
+    "release_date": "2024-05-17",
+    "trailer_link": "https://www.youtube.com/watch?v=xvFZjo5PgG0",
+    "is_adult_movie": false,
+    "genres": [{
+        "name": "Science Fiction"
+      },
+      {
+        "name": "Adventure"
+      }
+    ],
+    "directors": [{
+      "name": "Jane Doe",
+      "image": "https://placehold.co/400x400"
+    }],
+    "actors": [{
+        "name": "John Smith",
+        "image": "https://placehold.co/400x400",
+        "character_name": "Captain Ray Stellar",
+        "gender": "Male"
+      },
+      {
+        "name": "Emily Clarke",
+        "image": "https://placehold.co/400x400",
+        "character_name": "Dr. Aurora Nova",
+        "gender": "Female"
+      }
+    ],
+    "viewing_guides": [{
+      "name": "Galactic Journey: Behind the Scenes",
+      "image": "https://placehold.co/100x100"
+    }]
+  },
+  {
+    "api_id": 1,
+    "imdb_id": "tt1234567",
+    "title": "Random Racecar movie",
+    "description": "A moving tale of two racecar drivers as their thrilling rivalry takes them to amazing heights and devastating lows.",
+    "image": "https://placehold.co/600x400",
+    "rating": 6.7,
+    "length": 138,
+    "release_date": "2024-06-12",
+    "trailer_link": "https://www.youtube.com/watch?v=xvFZjo5PgG0",
+    "is_adult_movie": false,
+    "genres": [{
+        "name": "Science Fiction"
+      },
+      {
+        "name": "Adventure"
+      }
+    ],
+    "directors": [{
+      "name": "John Deer",
+      "image": "https://placehold.co/400x400"
+    }],
+    "actors": [{
+        "name": "Sam Baker",
+        "image": "https://placehold.co/400x400",
+        "character_name": "Ron Stele",
+        "gender": "Male"
+      },
+      {
+        "name": "Edwin Kent jr.",
+        "image": "https://placehold.co/400x400",
+        "character_name": "Angelo Nova",
+        "gender": "Male"
+      }
+    ],
+    "viewing_guides": [{
+      "name": "Random Racing: Behind the Scenes",
+      "image": "https://placehold.co/100x100"
+    }]
+  }
+]
