@@ -9,7 +9,9 @@
         <p style="width:40vw;font-size:1.5em;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, dolore
             facilis. Quisquam commodi veniam, eius fugit ab exercitationem labore eum sit ullam eos reiciendis vitae
             ipsum corrupti inventore rerum distinctio.</p>
+            <a style="text-decoration: none;"href="./agenda">
         <div id="referButton">BEKIJK DE DRAAIENDE FILMS</div>
+        </a>
     </div>
     <div id="locationBox">
         <div id="informationBox">
