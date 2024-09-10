@@ -1,16 +1,78 @@
+@import "./global";
+
+
 .filmpagina{
-    height: 100vw;
+    margin-top: 10vh;
+    height: 120vw;
     position:relative;
-    top:30vh;
+    top:20vh;
     color: #B97D46;
    background-color: black;
    
+   
+}
+
+#releasedate{
+    font-family: "latobold";
 }
 
 #titlebox{
     background-color: white; 
     height:10vh; 
-    width:100vh;
-    text-align: center;
+    width:190vh;
+    position: relative;
+    left: 80px;
+    top: 8vh;
+    display: flex;
+    
+    align-items: center;
   
 }
+
+#movieposter{
+    background-color: white; 
+    height:100vh; 
+    width:80vh;
+    position: relative;
+    top: 15vh;
+    left: 10vh;
+  
+}
+
+#movieinfo{
+    background-color: white; 
+    ;
+    height:100vh; 
+    width:108vh;
+    position: relative;
+    top: -85vh;
+    left: 92vh;
+justify-content: center;
+
+}
+
+#ticketbox{
+    background-color: #B97D46; 
+    color: white;
+    height:10vh; 
+    width:190vh;
+    position: relative;
+    left: 80px;
+    top: -83vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+#movietrailer{
+    background-color: white; 
+    height:80vh; 
+    width:190vh;
+    position: relative;
+    left: 80px;
+    top: -81vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
