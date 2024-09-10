@@ -43,7 +43,7 @@
                 <img src="./assets/img/logo.png">
             </div>
             <div id="menu">
-                <a href="">FILM AGENDA</a>
+                <a href="./agenda">FILM AGENDA</a>
                 <a href="">ALLE VESTIGINGEN</a>
                 <a href="">CONTACT</a>
             </div>

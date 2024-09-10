@@ -122,7 +122,7 @@ p.infoP {
 
 #blackBackground {
   width: 100%;
-  height: 210vh;
+  height: 100%;
   background-color: black;
   position: absolute;
   display: flex;
@@ -194,6 +194,7 @@ p.infoP {
 #movieContainer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .movieRow {
@@ -257,9 +258,10 @@ p.infoP {
 }
 
 #allFilmsButton {
-  margin: 3vh 65vw 0 0;
+  margin: 5vh 63vw 4vh 0;
   width: 15vw;
-  font-size: 0.8em;
+  min-width: 150px;
+  font-size: 1em;
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -268,4 +270,6 @@ p.infoP {
   background-color: #B97D46;
   color: white;
   z-index: 1;
+  padding: 10px 20px;
+  text-align: center;
 }/*# sourceMappingURL=home.css.map */
