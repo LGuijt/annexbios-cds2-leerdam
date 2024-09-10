@@ -193,9 +193,10 @@ body {
   height: 80vh;
   display: none;
 }
-#filminfo img {
+#filminfo #infoimg {
   height: 300px;
   width: 200px;
+  background-color: hotpink;
 }
 #filminfo #filmomschrijving {
   padding: 10%;
@@ -206,8 +207,18 @@ body {
   padding-bottom: 2%;
 }
 #filminfo #infodatum {
-  font-size: 20px;
+  font-size: 17px;
   padding-bottom: 5%;
+}
+#filminfo #inforating {
+  display: grid;
+  height: 10vh;
+}
+#filminfo #inforating img {
+  height: 100%;
+}
+#filminfo #infoomschrijving {
+  font-size: 15px;
 }
 
 #bestelbutton {

@@ -134,12 +134,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
         <div id="filminfo">
-            <div><img alt="filmposter" src=<?= $image ?>></div>
+            <div><img id="infoimg" alt="filmposter" src=<?= $image ?>></div>
             <!-- 200x300 -->
             <div id="filmomschrijving">
                 <div id="infotitel"><?= $filmnaam ?></div>
-                <div id="inforatings">ratings</div>
-                <div id="infodatum">release: <?= $releasedate ?></div>
+                <div id="inforatings"><?php
+                            $filledStars = floor($movie["rating"] / 2);
+                            $unfilledStars = 5 - $filledStars;
+                            for ($k = 0; $k < $filledStars; $k++) { ?>
+                                <img class="star" src="./assets/img/star_filled.png">
+                            <?php }
+                            for ($k = 0; $k < $unfilledStars; $k++) { ?>
+                                <img class="star" src="./assets/img/star_unfilled.png">
+                            <?php } ?></div>
+                <div id="infodatum">Release: <?= $releasedate ?></div>
                 <div id="infoomschrijving"><?= $description ?></div>
             </div>
         </div>

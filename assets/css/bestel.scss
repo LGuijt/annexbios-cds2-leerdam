@@ -57,7 +57,7 @@
 
     #stapeen{
     display: grid;
-}
+    }
 
     .staptitel {
         color: $boxFill;
@@ -210,9 +210,10 @@
     height: 80vh;
     display:none;
 
-    img{
+    #infoimg{
         height: 300px;
         width: 200px;
+        background-color: hotpink;
     }
 
     #filmomschrijving{
@@ -226,8 +227,21 @@
     }
 
     #infodatum{
-        font-size: 20px;
+        font-size: 17px;
         padding-bottom: 5%;
+    }
+
+    #inforating{
+        display: grid;
+        height: 10vh;
+
+        img{
+            height: 100%;
+        }
+    }
+
+    #infoomschrijving{
+       font-size: 15px;
     }
 }
 
