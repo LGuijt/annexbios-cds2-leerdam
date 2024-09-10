@@ -43,6 +43,7 @@ body {
 #datumtijd {
   display: flex;
   grid-column: 1/span 2;
+  margin-bottom: 2%;
 }
 #datumtijd #filmname {
   background-color: white;
@@ -62,6 +63,7 @@ body {
 
 #stappen {
   background-color: white;
+  display: none;
 }
 #stappen #stapeen {
   display: grid;
@@ -105,7 +107,7 @@ body {
 #stappen #voucher input {
   border: 1px solid #B97D46;
 }
-#stappen #voucher button {
+#stappen #voucher #toevoegen {
   background-color: #B97D46;
   color: white;
   border: none;
@@ -123,6 +125,10 @@ body {
 }
 #stappen #controlebox #controleposter {
   grid-row: 1/span 7;
+}
+#stappen #controlebox #controleposter img {
+  height: 240px;
+  width: 160px;
 }
 #stappen #controlebox #controletitel {
   font-size: 30px;
@@ -147,6 +153,17 @@ body {
 #stappen #gegevens input {
   border: 2px solid #B97D46;
   padding: 1vh;
+}
+#stappen #gegevens #firstname {
+  grid-column: 1;
+  grid-row: 1;
+}
+#stappen #gegevens #lastname {
+  grid-column: 2;
+  grid-row: 1;
+}
+#stappen #gegevens .email {
+  grid-column: 1/span 2;
 }
 #stappen #betaalwijze {
   display: grid;
@@ -173,13 +190,18 @@ body {
 
 #filminfo {
   background-color: white;
-  height: 70vh;
+  height: 80vh;
+  display: none;
+}
+#filminfo img {
+  height: 300px;
+  width: 200px;
 }
 #filminfo #filmomschrijving {
   padding: 10%;
 }
 #filminfo #infotitel {
-  font-size: 30px;
+  font-size: 25px;
   color: #707070;
   padding-bottom: 2%;
 }
@@ -188,6 +210,9 @@ body {
   padding-bottom: 5%;
 }
 
+#bestelbutton {
+  display: none;
+}
 #bestelbutton input[type=submit] {
   background-color: #B97D46;
   color: white;

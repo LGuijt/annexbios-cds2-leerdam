@@ -8,6 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach ($moviedata as $movie) {
         if ($movie['api_id'] == $filmkeuze) {
             $filmnaam = $movie['title'];
+            $image = $movie['image'];
+            $releasedate = $movie['release_date'];
+            $description = $movie['description'];
         }
     }
 
@@ -24,16 +27,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div id="titel">TICKETS BESTELLEN</div>
         <div id="datumtijd">
             <div id="filmname"><?= $filmnaam ?></div>
-            <select name="datum">
-                <option>DATUM</option>
+            <select name="datum" id="datum">
+                <option value="start">DATUM</option>
                 <option value="<?= date("Y-m-d", $playtime); ?>"><?= date("d-m", $playtime) ?></option>
             </select>
-            <select name="tijd">
-                <option>TIJD</option>
-                <option>12:00</option>
-                <option>15:00</option>
-                <option>18:00</option>
-                <option>21:00</option>
+            <select name="tijd" id="tijd">
+                <option value="start">TIJD</option>
+                <option value="<?= date("H:i:s", $playtime)?>"><?= date("H:i", $playtime)?></option>
             </select>
         </div>
         <div id="stappen">
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="prijzen">
                         <div>Normaal</div>
                         <div>€9,00</div>
-                        <select name="prijsnormaal">
+                        <select name="prijsnormaal" id="normalTickets">
                             <?php
                             for ($i = 0; $i <= 10; $i++) {
                                 ?>
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="prijzen">
                         <div>Kind t/m 11 jaar</div>
                         <div>€5,00</div>
-                        <select name="prijskind">
+                        <select name="prijskind" id="childTickets">
                             <?php
                             for ($i = 0; $i <= 10; $i++) {
                                 ?>
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="prijzen">
                         <div>65+</div>
                         <div>€7,00</div>
-                        <select name="prijs65">
+                        <select name="seniortickets" id="seniorTickets">
                             <?php
                             for ($i = 0; $i <= 10; $i++) {
                                 ?>
@@ -87,8 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div id="voucher">
                     <div>VOUCHERCODE</div>
-                    <input type="text" name="voucher" placeholder="code">
-                    <button>TOEVOEGEN</button>
+                    <input type="text" name="voucher" placeholder="code" id="vouchercode">
+                    <div id="toevoegen">TOEVOEGEN</div>
                 </div>
             </div>
             <div id="staptwee">
@@ -97,52 +97,54 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div id="stapdrie">
                 <div class="staptitel">STAP 3: CONTROLEER JE BESTELLING</div>
                 <div id="controlebox">
-                    <div id="controleposter"><img alt="plaatje van de film" src="https://placehold.co/160x240"></div>
-                    <div id="controletitel"><span class="bold">filmnaam</span></div>
+                    <div id="controleposter"><img alt="plaatje van de film" src=<?= $image ?>></div>
+                    <!-- image is 160x240 -->
+                    <div id="controletitel"><span class="bold"><?= $filmnaam ?></span></div>
                     <div>Kijkwijzercontainer</div>
-                    <div><span class="bold">Bioscoop:</span> Leerdam (zaal ?)</div>
-                    <div><span class="bold">Wanneer:</span> </div>
+                    <div><span class="bold">Bioscoop:</span> Leerdam (zaal 2)</div>
+                    <div><span class="bold">Wanneer: </span><span id="when"></span></div>
                     <div><span class="bold">Stoelen:</span> Rij ?, stoel ?</div>
-                    <div><span class="bold">Tickets:</span></div>
-                    <div id="controletotaal"><span class="bold">Totaal ? ticket(s):</span> </div>
+                    <div><span class="bold">Tickets: </span><span id="alletickets"></span></div>
+                    <div id="controletotaal"><span class="bold">Totaal <span id="totaltickets"></span> ticket(s):</span><span id="totalprice"></span> </div>
                 </div>
             </div>
             <div id="stapvier">
                 <div class="staptitel">STAP 4: Vul je gegevens</div>
                 <div id="gegevens">
-                    <input type="text" name="voornaam" placeholder="Voornaam"></p>
-                    <input type="text" name="achternaam" placeholder="Achternaam"></>
-                    <input type="text" name="email" placeholder="E-mailadres*" style="grid-column: 1/ span 2;"></>
-                    <input type="text" name="emailtoo" placeholder="E-mailadres*" style="grid-column: 1/ span 2;"></>
+                    <input type="text" name="voornaam" placeholder="Voornaam" id="firstname"></p>
+                    <input type="text" name="achternaam" placeholder="Achternaam" id="lastname"></>
+                    <input type="text" name="email" placeholder="E-mailadres*" class="email" style="grid-row: 2;" id="emailone"></>
+                    <input type="text" name="emailtoo" placeholder="E-mailadres*" class="email" style="grid-row: 3;" id="emailtwo"></>
                 </div>
             </div>
             <div id="stapvijf">
                 <div class="staptitel">STAP 5: KIES JE BETAALWIJZE</div>
                 <div id="betaalwijze">
-                    <input type="checkbox" name="betaalwijze" value="biosbon"><img alt="bioscoopbon"
+                    <input type="checkbox" name="betaalwijze" value="biosbon" id="biosbon"><img alt="bioscoopbon"
                         src="./assets/img/biosbon.png">
-                    <input type="checkbox" name="betaalwijze" value="maestro"><img alt="maestro"
+                    <input type="checkbox" name="betaalwijze" value="maestro" id="maestro"><img alt="maestro"
                         src="./assets/img/maestro.png">
-                    <input type="checkbox" name="betaalwijze" value="ideal"><img alt="ideal"
+                    <input type="checkbox" name="betaalwijze" value="ideal" id="ideal"><img alt="ideal"
                         src="./assets/img/ideal.png">
                 </div>
                 <div id="voorwaarden">
-                    <input type="checkbox" name="voorwaarden" value="voorwaarden">
+                    <input type="checkbox" name="voorwaarden" value="voorwaarden" id="terms">
                     <div>Ik ga akkoord met de <a href="#">algemene voorwaarden</a></div>
                 </div>
             </div>
         </div>
         <div id="filminfo">
-            <div><img alt="filmposter" src="https://placehold.co/200x300"></div>
+            <div><img alt="filmposter" src=<?= $image ?>></div>
+            <!-- 200x300 -->
             <div id="filmomschrijving">
-                <div id="infotitel">filmnaam</div>
+                <div id="infotitel"><?= $filmnaam ?></div>
                 <div id="inforatings">ratings</div>
-                <div id="infodatum">releasedatum</div>
-                <div id="infoomschrijving">filmomschrijving</div>
+                <div id="infodatum">release: <?= $releasedate ?></div>
+                <div id="infoomschrijving"><?= $description ?></div>
             </div>
         </div>
         <div id="bestelbutton">
-            <input type="submit" value="AFREKENEN">
+            <input id="topayment" type="submit" value="AFREKENEN" disabled>
         </div>
     </form>
 </div>

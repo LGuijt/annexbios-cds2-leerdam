@@ -31,6 +31,7 @@
 #datumtijd{
     display: flex;
     grid-column: 1 / span 2;
+    margin-bottom: 2%;
 
     #filmname {
         background-color: white;
@@ -52,6 +53,7 @@
 
 #stappen{
     background-color: white;
+    display:none;
 
     #stapeen{
     display: grid;
@@ -102,7 +104,7 @@
             border: 1px solid $boxFill;
         }
 
-        button {
+        #toevoegen {
             background-color: $boxFill;
             color: white;
             border: none;
@@ -122,6 +124,10 @@
 
         #controleposter{
             grid-row: 1/ span 7;
+            img{
+                height: 240px;
+                width: 160px;
+            }
         }
 
         #controletitel{
@@ -151,6 +157,20 @@
         input{
             border: 2px solid $boxFill;
             padding: 1vh;
+        }
+
+        #firstname{
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        #lastname{
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .email{
+            grid-column: 1 / span 2;
         }
     }
 
@@ -187,14 +207,20 @@
 
 #filminfo{
     background-color: white;
-    height: 70vh;
+    height: 80vh;
+    display:none;
+
+    img{
+        height: 300px;
+        width: 200px;
+    }
 
     #filmomschrijving{
         padding: 10%;
     }
 
     #infotitel{
-        font-size: 30px;
+        font-size: 25px;
         color: $footerFill;
         padding-bottom: 2%;
     }
@@ -206,6 +232,7 @@
 }
 
 #bestelbutton{
+    display: none;
 
     input[type=submit]{
         background-color: $boxFill;
