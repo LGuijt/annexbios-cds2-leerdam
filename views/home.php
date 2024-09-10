@@ -9,7 +9,9 @@
         <p style="width:40vw;font-size:1.5em;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, dolore
             facilis. Quisquam commodi veniam, eius fugit ab exercitationem labore eum sit ullam eos reiciendis vitae
             ipsum corrupti inventore rerum distinctio.</p>
+            <a style="text-decoration: none;"href="./agenda">
         <div id="referButton">BEKIJK DE DRAAIENDE FILMS</div>
+        </a>
     </div>
     <div id="locationBox">
         <div id="informationBox">
@@ -63,16 +65,16 @@
         <div id="filters">
             <img id="settingsImage" src="./assets/img/settings.png">
             <div class="whiteBox" id="filmsBox">
-                <img src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">FILMS
+                <img id="filmsBoxImage" src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">FILMS
             </div>
             <div class="whiteBox" id="thisWeekBox">
-                <img src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">DEZE WEEK
+                <img id="thisWeekBoxImage" src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">DEZE WEEK
             </div>
             <div class="whiteBox" id="todayBox">
-                <img src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">VANDAAG
+                <img id="todayBoxImage" src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">VANDAAG
             </div>
             <div class="whiteBox" id="categoryBox">
-                <img src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">CATEGORIE
+                <img id="categoryBoxImage" src="./assets/img/unchecked.png" style="margin-right: 0.5vw;">CATEGORIE
                 <div style="width:1.8vw;"></div>
                 <div id="dropDownArrow" style="transform: scaleX(2);">V</div>
             </div>
@@ -81,31 +83,42 @@
 
     <div id="movieContainer">
         <?php
-        for ($i = 0; $i < 6; $i++) {
-            ?>
-            <div class="movieRow"><?php
-            for ($j = 0; $j < 2; $j++) {
-                ?>
-                    <div class="movieColumn">
-                        <img id="movieImage" src="https://placehold.co/254x402">
-                        <div style="padding: .75vw;">
-                            <div id="movieTitle">JURASSIC WORLD: <div style="font-size: 0.9em;">FALLEN KINGDOM</div>
-                            </div>
-                            <div id="starContainer">
-                                <?php for ($k = 0; $k < 5; $k++) { ?>
-                                    <img class="star" src="./assets/img/star_filled.png">
-                                <?php } ?>
-                            </div>
-                            <div id="releaseText">Release: 9/09/2024</div>
-                            <div id="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius ipsum
-                                perferendis iste sunt, et minima mollitia voluptatem quisquam.</div>
-                            <div id="ticketsButton">MEER INFO & TICKETS</div>
+        // Loop over the movie data
+        foreach ($moviedata as $index => $movie) {
+            // Every 2 movies, open a new row
+            if ($index % 2 == 0) { ?>
+                <div class="movieRow">
+                <?php } ?>
+
+                <div class="movieColumn">
+                    <img id="movieImage" src="https://placehold.co/254x402">
+                    <div style="padding: .75vw;">
+                        <div id="movieTitle"><?= $movie['title']; ?></div>
+                        <div id="starContainer">
+                            <?php
+                            $filledStars = floor($movie["rating"] / 2);
+                            $unfilledStars = 5 - $filledStars;
+                            for ($k = 0; $k < $filledStars; $k++) { ?>
+                                <img class="star" src="./assets/img/star_filled.png">
+                            <?php }
+                            for ($k = 0; $k < $unfilledStars; $k++) { ?>
+                                <img class="star" src="./assets/img/star_unfilled.png">
+                            <?php } ?>
                         </div>
-                    </div><?php } ?>
-            </div>
-        <?php } ?>
+                        <div id="releaseText"><?=$movie["release_date"];?></div>
+                        <div id="description"><?=$movie['description'];?></div>
+                        <div id="ticketsButton">MEER INFO & TICKETS</div>
+                    </div>
+                </div>
+
+                <?php
+                // Every 2 movies, close the row
+                if ($index % 2 == 1) { ?>
+                </div>
+            <?php }
+        } ?>
     </div>
     <div id="allFilmsButton">BEKIJK ALLE FILMS</div>
-</div>
 
-<?php include 'core/footer.php'; ?>
+
+    <?php include 'core/footer.php'; ?>
