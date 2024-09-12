@@ -32,5 +32,9 @@
 </div>
 
 </body>
+<?php 
+
+$con->close();
+?>
 
 </html>

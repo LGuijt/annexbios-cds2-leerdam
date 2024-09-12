@@ -6,6 +6,7 @@ seniorTickets = 0;
 allTickets = 0;
 totalPrice = 0;
 discount = false;
+discountPrice = 0;
 date = "";
 time = "";
 lastNameCheck = false;
@@ -99,17 +100,17 @@ function updatePrice() {
     document.getElementById("totaltickets").innerHTML = allTickets;
     totalPrice = (normalTickets * 9) + (childTickets * 5) + (seniorTickets * 7);
     if(discount){
-        totalPrice -= 2;
+        totalPrice = totalPrice - discountPrice;
     }
     document.getElementById("totalprice").innerHTML = " €" + totalPrice + ",-";
 }
 
 document.getElementById("addvoucher").addEventListener('click', async function() {
     var voucher = document.getElementById("vouchercode").value;
-    if(voucher === "4815162342"){
-        discount = true;
-        updatePrice();
-    }
+    // if(voucher === "4815162342"){
+    //     discount = true;
+    //     updatePrice();
+    // }
 
     const res = await fetch('/api/tickets/checkvoucher.php', {
         method: 'POST',
@@ -119,7 +120,10 @@ document.getElementById("addvoucher").addEventListener('click', async function()
     });
 
     const data = await res.json();
-    console.log(data);
+    console.log(data.discount);
+    discountPrice = data.discount;
+    discount = data.valid;
+    updatePrice();
 });
 
 document.getElementById("lastname").addEventListener('change', function() {
