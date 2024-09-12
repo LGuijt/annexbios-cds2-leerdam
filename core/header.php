@@ -40,18 +40,20 @@
     <div id="mainHeader">
         <div id="upperHalf">
             <div id="logo">
+                <a href="./">
                 <img src="./assets/img/logo.png">
+                </a>
             </div>
             <div id="menu">
                 <a href="./agenda">FILM AGENDA</a>
-                <a href="">ALLE VESTIGINGEN</a>
-                <a href="">CONTACT</a>
+                <a href="https://youtu.be/dQw4w9WgXcQ?si=4hVxHUqrSJKu_8ZA">ALLE VESTIGINGEN</a>
+                <a href="https://youtu.be/dQw4w9WgXcQ?si=4hVxHUqrSJKu_8ZA">CONTACT</a>
             </div>
         </div>
         <div id="lowerHalf">
             <form method="post" action="bestel">
-                <div id="tekst">KOOP JE TICKETS</div>
-                <select name="filmkeuze">
+                <div>KOOP JE TICKETS</div>
+                <select name="filmchoice">
                     <option>Kies je film</option>
                     <?php 
                     foreach ($moviedata as $movie) {
