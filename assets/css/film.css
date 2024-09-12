@@ -14,15 +14,11 @@ body {
 
 .filmpagina {
   margin-top: 10vh;
-  height: 120vw;
+  height: 125vw;
   position: relative;
   top: 20vh;
   color: #B97D46;
   background-color: black;
-}
-
-#releasedate {
-  font-family: "latobold";
 }
 
 #titlebox {
@@ -38,16 +34,16 @@ body {
 
 #movieposter {
   background-color: white;
-  height: 100vh;
+  height: 110vh;
   width: 80vh;
   position: relative;
-  top: 15vh;
+  top: 25vh;
   left: 10vh;
 }
 
 #movieinfo {
   background-color: white;
-  height: 100vh;
+  height: 110vh;
   width: 108vh;
   position: relative;
   top: -85vh;
@@ -78,4 +74,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.starImage {
+  width: 50px;
+  height: 50px;
+  padding: 2vw 0 0 0;
+}
+
+#releasedate {
+  font-size: 2em;
+  font-weight: 900;
+  padding: 0 0vw 0vw 2vw;
+  color: #666666;
+}
+
+.info {
+  font-size: 1.4em;
+  font-weight: 900;
+  padding: 0vw 1vw 0.5vh 2.5vw;
+  color: #797979;
+  position: relative;
+  margin-bottom: 0%;
+  margin-top: 0%;
 }/*# sourceMappingURL=film.css.map */
