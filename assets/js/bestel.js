@@ -18,7 +18,7 @@ maestro = false;
 ideal = false;
 termsCheck = false;
 
-document.getElementById('datum').addEventListener('change', function() {
+document.getElementById('o-date').addEventListener('change', function() {
     if(this.value !== "start"){
         dateCheck = true;
         date = this.value;
@@ -29,7 +29,7 @@ document.getElementById('datum').addEventListener('change', function() {
     whenUpdate();
 });
 
-document.getElementById('tijd').addEventListener('change', function() {
+document.getElementById('o-time').addEventListener('change', function() {
     if(this.value !== "start"){
         timeCheck = true;
         time = this.value;
@@ -42,10 +42,10 @@ document.getElementById('tijd').addEventListener('change', function() {
 
 function stepCheck() {
     if(dateCheck && timeCheck){
-        document.getElementById("stappen").style.display = "block";
+        document.getElementById("steps").style.display = "block";
         document.getElementById("filminfo").style.display = "block";
-        document.getElementById("bestelbutton").style.display = "block";
-        document.getElementById("datumtijd").style.marginBottom = "0";
+        document.getElementById("orderbutton").style.display = "block";
+        document.getElementById("datetime").style.marginBottom = "0";
     }
 }
 
@@ -76,21 +76,21 @@ function updates() {
 }
 
 function updateTickets() {
-    alleTickets = document.getElementById("alletickets");
+    allTickets = document.getElementById("alltickets");
     if (normalTickets > 0 && childTickets > 0 && seniorTickets > 0) {
-        alleTickets.innerHTML = normalTickets + "x normaal, " + childTickets + "x kind en " + seniorTickets + "x senior";
+        allTickets.innerHTML = normalTickets + "x normaal, " + childTickets + "x kind en " + seniorTickets + "x senior";
     } else if (normalTickets > 0 && childTickets > 0) {
-        alleTickets.innerHTML = normalTickets + "x normaal en " + childTickets + "x kind";
+        allTickets.innerHTML = normalTickets + "x normaal en " + childTickets + "x kind";
     } else if (normalTickets > 0 && seniorTickets > 0) {
-        alleTickets.innerHTML = normalTickets + "x normaal en " + seniorTickets + "x senior";
+        allTickets.innerHTML = normalTickets + "x normaal en " + seniorTickets + "x senior";
     } else if (childTickets > 0 && seniorTickets > 0) {
-        alleTickets.innerHTML = childTickets + "x kind en " + seniorTickets + "x senior";
+        allTickets.innerHTML = childTickets + "x kind en " + seniorTickets + "x senior";
     } else if (normalTickets > 0) {
-        alleTickets.innerHTML = normalTickets + "x normaal";
+        allTickets.innerHTML = normalTickets + "x normaal";
     } else if (childTickets > 0) {
-        alleTickets.innerHTML = childTickets + "x kind";
+        allTickets.innerHTML = childTickets + "x kind";
     } else if (seniorTickets > 0) {
-        alleTickets.innerHTML = seniorTickets + "x senior";
+        allTickets.innerHTML = seniorTickets + "x senior";
     }
 }
 
@@ -104,13 +104,22 @@ function updatePrice() {
     document.getElementById("totalprice").innerHTML = " €" + totalPrice + ",-";
 }
 
-document.getElementById("toevoegen").addEventListener('click', function() {
+document.getElementById("addvoucher").addEventListener('click', async function() {
     var voucher = document.getElementById("vouchercode").value;
     if(voucher === "4815162342"){
         discount = true;
-        console.log(voucher);
         updatePrice();
     }
+
+    const res = await fetch('/api/tickets/checkvoucher.php', {
+        method: 'POST',
+        body: JSON.stringify({
+            voucher: voucher
+        })
+    });
+
+    const data = await res.json();
+    console.log(data);
 });
 
 document.getElementById("lastname").addEventListener('change', function() {
@@ -179,16 +188,11 @@ function compareEmail() {
     } else {
         emailCheck = false;
     }
-
-    if(emailCheck){
-        alert("Emails komen overeen");
-    }
 }
 
 document.getElementById("terms").addEventListener('change', function() {
     if(this.checked){
         termsCheck = true;
-        alert("U heeft de algemene voorwaarden geaccepteerd");
     } else {
         termsCheck = false;
     }
