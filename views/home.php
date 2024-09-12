@@ -9,8 +9,8 @@
         <p style="width:40vw;font-size:1.5em;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, dolore
             facilis. Quisquam commodi veniam, eius fugit ab exercitationem labore eum sit ullam eos reiciendis vitae
             ipsum corrupti inventore rerum distinctio.</p>
-            <a style="text-decoration: none;"href="./agenda">
-        <div id="referButton">BEKIJK DE DRAAIENDE FILMS</div>
+        <a style="text-decoration: none;" href="./agenda">
+            <div id="referButton">BEKIJK DE DRAAIENDE FILMS</div>
         </a>
     </div>
     <div id="locationBox">
@@ -55,7 +55,7 @@
                 </div>
             </div>
         </div>
-        <img id="locationImage" src="./assets/img/locatie.png" style="height:63vh;margin-left:2vw;">
+        <img id="locationImage" src="./assets/img/locatie.png" style="height:63vh;margin-left:2vw;width:50%;">
     </div>
 </div>
 <div class="parentContainer" style="height: 210vh;">
@@ -105,8 +105,8 @@
                                 <img class="star" src="./assets/img/star_unfilled.png">
                             <?php } ?>
                         </div>
-                        <div id="releaseText"><?=$movie["release_date"];?></div>
-                        <div id="description"><?=$movie['description'];?></div>
+                        <div id="releaseText"><?= $movie["release_date"]; ?></div>
+                        <div id="description"><?= $movie['description']; ?></div>
                         <div id="ticketsButton">MEER INFO & TICKETS</div>
                     </div>
                 </div>
@@ -118,7 +118,9 @@
             <?php }
         } ?>
     </div>
-    <div id="allFilmsButton">BEKIJK ALLE FILMS</div>
+    <a href="./agenda" target="_blank" style="z-index: 1;text-decoration:none;">
+        <div id="allFilmsButton">BEKIJK ALLE FILMS</div>
+    </a>
 
 
     <?php include 'core/footer.php'; ?>
