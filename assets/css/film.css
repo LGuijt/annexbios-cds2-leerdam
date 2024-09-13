@@ -1,6 +1,109 @@
+@font-face {
+  font-family: "latomedium";
+  src: url(./fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: "latobold";
+  src: url(./fonts/Lato-Bold.ttf);
+}
+body {
+  margin: 0;
+  font-family: "latomedium", sans-serif;
+  overflow-x: hidden;
+}
+
+.filmpagina {
+  margin-top: 10vh;
+  height: 125vw;
+  position: relative;
+  top: 20vh;
+  color: #B97D46;
+  background-color: black;
+}
+
 #titlebox {
+  background-color: white;
+  height: 10vh;
+  width: 190vh;
+  position: relative;
+  left: 80px;
+  top: 8vh;
+  display: flex;
+  align-items: center;
+}
+
+#movieposter {
+  background-color: white;
+  height: 120vh;
+  width: 80vh;
+  position: relative;
+  top: 17vh;
+  left: 10vh;
+}
+
+#movieinfo {
+  background-color: white;
+  height: 120vh;
+  width: 108vh;
+  position: relative;
+  top: -103vh;
+  left: 92vh;
+  justify-content: center;
+}
+
+#ticketbox {
   background-color: #B97D46;
-  height: 20vh;
-  width: 30vh;
-  text-align: center;
+
+  color: white;
+  height: 10vh;
+  width: 190vh;
+  position: relative;
+  left: 80px;
+  top: -100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+#movietrailer {
+  height: 80vh;
+  width: 190vh;
+  position: relative;
+  left: 80px;
+  top: -97vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.starImage {
+  width: 50px;
+  height: 50px;
+  padding: 2vw 0 0 0;
+}
+
+#releasedate {
+  font-size: 2em;
+  font-weight: 900;
+  padding: 0 0vw 0vw 2vw;
+  color: #666666;
+}
+
+.info {
+  font-size: 1.4em;
+  font-weight: 900;
+  padding: 0vw 1vw 0.5vh 2.5vw;
+  color: #797979;
+  position: relative;
+  margin-bottom: 0%;
+  margin-top: 0%;
+}
+
+.actorpics {
+  width: 100px;
+  height: 150px;
+  padding: 0vw 0 0 0;
+  margin-top: 0%;
+
 }/*# sourceMappingURL=film.css.map */

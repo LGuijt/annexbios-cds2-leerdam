@@ -107,10 +107,6 @@ function updatePrice() {
 
 document.getElementById("addvoucher").addEventListener('click', async function() {
     var voucher = document.getElementById("vouchercode").value;
-    // if(voucher === "4815162342"){
-    //     discount = true;
-    //     updatePrice();
-    // }
 
     const res = await fetch('/api/tickets/checkvoucher.php', {
         method: 'POST',
