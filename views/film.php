@@ -39,7 +39,10 @@
 
 </div>
 
+<a href="http://localhost/annexbios-cds2-leerdam/film" target="_blank"
+style="text-decoration: none;">
 <div id="ticketbox"><h1 style="font-size:2.5em; font-weight: 300;">KOOP JE TICKETS</h1></div>
+</a>
 
 <div id="movietrailer">
     <iframe width="5000vw" height="100% " 
