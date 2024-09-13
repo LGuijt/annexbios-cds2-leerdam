@@ -30,24 +30,42 @@
 </head>
 
 <body>
+    <?php
+    $file_json = file_get_contents('assets/json/dummylocation.json');
+    $locationdata = json_decode($file_json, true);
+
+    $file_json = file_get_contents('assets/json/dummymovie.json');
+    $moviedata = json_decode($file_json, true);
+    ?>
     <div id="mainHeader">
         <div id="upperHalf">
             <div id="logo">
+                <a href="./">
                 <img src="./assets/img/logo.png">
+                </a>
             </div>
             <div id="menu">
-                <a href="">FILM AGENDA</a>
-                <a href="">ALLE VESTIGINGEN</a>
-                <a href="">CONTACT</a>
+                <a href="./agenda">FILM AGENDA</a>
+                <a href="https://youtu.be/dQw4w9WgXcQ?si=4hVxHUqrSJKu_8ZA">ALLE VESTIGINGEN</a>
+                <a href="https://youtu.be/dQw4w9WgXcQ?si=4hVxHUqrSJKu_8ZA">CONTACT</a>
             </div>
         </div>
         <div id="lowerHalf">
-            <form method="post" action="bestel.php">
-                <div id="tekst">KOOP JE TICKETS</div>
-                <select name="filmkeuze">
+            <form method="post" action="bestel">
+                <div>KOOP JE TICKETS</div>
+                <select name="filmchoice">
                     <option>Kies je film</option>
-                    <option value="1">film 1</option>
-                    <option value="2">film 2</option>
+                    <?php 
+                    foreach ($moviedata as $movie) {
+                        foreach ($locationdata as $location) {
+                            if ($location["id"] == 3 && $location["movie_id"] == $movie["api_id"]) {
+                                ?>
+                                <option value="<?= $movie['api_id']; ?>"><?= $movie['title']; ?></option>
+                                <?php
+                            }
+                        }
+                    }
+                    ?>
                 </select>
                 <input type="submit" value="BESTEL TICKETS">
             </form>

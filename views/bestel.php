@@ -1,45 +1,54 @@
 <?php include 'core/header.php'; ?>
 
-<div id="bestelpagina">
-    <form id="container">
-        <div id="titel">TICKETS BESTELLEN</div>
-        <div id="datumtijd">
-            <div id="filmname">filmnaam</div>
-            <select name="datum">
-                <option>DATUM</option>
-                <?php
-                $startdate = strtotime("today");
-                $enddate = strtotime("+14 days", $startdate);
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $filmchoice = $_POST['filmchoice'];
 
-                while ($startdate < $enddate) {
-                    ?>
-                    <option value="<?= date("Y-m-d", $startdate); ?>"><?= date("d-m", $startdate); ?></option>
-                    <?php
-                    $startdate = strtotime("+1 day", $startdate);
-                }
-                ?>
+
+    foreach ($moviedata as $movie) {
+        if ($movie['api_id'] == $filmchoice) {
+            $filmname = $movie['title'];
+            $image = $movie['image'];
+            $releasedate = $movie['release_date'];
+            $description = $movie['description'];
+        }
+    }
+
+    foreach ($locationdata as $location) {
+        if ($location['movie_id'] == $filmchoice) {
+            $playtime = $location['play_time'];
+        }
+    }
+    $playtime = strtotime($playtime);
+}
+?>
+<div id="o-parentcontainer">
+    <form id="container">
+        <div id="title">TICKETS BESTELLEN</div>
+        <div id="datetime">
+            <div id="filmname"><?= $filmname ?></div>
+            <select name="date" id="o-date">
+                <option value="start">DATUM</option>
+                <option value="<?= date("Y-m-d", $playtime); ?>"><?= date("d-m", $playtime) ?></option>
             </select>
-            <select name="tijd">
-                <option>TIJD</option>
-                <option>12:00</option>
-                <option>15:00</option>
-                <option>18:00</option>
-                <option>21:00</option>
+            <select name="time" id="o-time">
+                <option value="start">TIJD</option>
+                <option value="<?= date("H:i:s", $playtime)?>"><?= date("H:i", $playtime)?></option>
             </select>
         </div>
-        <div id="stappen">
-            <div id="stapeen">
-                <div class="staptitel">STAP 1: KIES JE TICKET</div>
-                <div id="tickettabel">
-                    <div id="prijstop">
+        <div id="steps">
+            <div id="step1">
+                <div class="steptitle">STAP 1: KIES JE TICKET</div>
+                <div id="tickettable">
+                    <div id="pricetop">
                         <div>TYPE</div>
                         <div>PRIJS</div>
                         <div>AANTAL</div>
                     </div>
-                    <div class="prijzen">
+                    <div class="prices">
                         <div>Normaal</div>
                         <div>€9,00</div>
-                        <select name="prijsnormaal">
+                        <select name="pricenormal" id="normalTickets">
                             <?php
                             for ($i = 0; $i <= 10; $i++) {
                                 ?>
@@ -49,10 +58,10 @@
                             ?>
                         </select>
                     </div>
-                    <div class="prijzen">
+                    <div class="prices">
                         <div>Kind t/m 11 jaar</div>
                         <div>€5,00</div>
-                        <select name="prijskind">
+                        <select name="pricechild" id="childTickets">
                             <?php
                             for ($i = 0; $i <= 10; $i++) {
                                 ?>
@@ -62,10 +71,10 @@
                             ?>
                         </select>
                     </div>
-                    <div class="prijzen">
+                    <div class="prices">
                         <div>65+</div>
                         <div>€7,00</div>
-                        <select name="prijs65">
+                        <select name="pricesenior" id="seniorTickets">
                             <?php
                             for ($i = 0; $i <= 10; $i++) {
                                 ?>
@@ -78,62 +87,72 @@
                 </div>
                 <div id="voucher">
                     <div>VOUCHERCODE</div>
-                    <input type="text" name="voucher" placeholder="code">
-                    <button>TOEVOEGEN</button>
+                    <input type="text" name="voucher" placeholder="code" id="vouchercode">
+                    <div id="addvoucher">TOEVOEGEN</div>
                 </div>
             </div>
-            <div id="staptwee">
-                <div class="staptitel">STAP 2: KIES JE STOEL</div>
+            <div id="step2">
+                <div class="steptitle">STAP 2: KIES JE STOEL</div>
             </div>
-            <div id="stapdrie">
-                <div class="staptitel">STAP 3: CONTROLEER JE BESTELLING</div>
-                <div id="controlebox">
-                    <div id="controleposter"><img alt="plaatje van de film" src="https://placehold.co/160x240"></div>
-                    <div id="controletitel"><span class="bold">filmnaam</span></div>
+            <div id="step3">
+                <div class="steptitle">STAP 3: CONTROLEER JE BESTELLING</div>
+                <div id="controlbox">
+                    <div id="controlposter"><img alt="plaatje van de film" src=<?= $image ?>></div>
+                    <!-- image is 160x240 -->
+                    <div id="controltitle"><span class="bold"><?= $filmname ?></span></div>
                     <div>Kijkwijzercontainer</div>
-                    <div><span class="bold">Bioscoop:</span> Leerdam (zaal ?)</div>
-                    <div><span class="bold">Wanneer:</span> </div>
+                    <div><span class="bold">Bioscoop:</span> Leerdam (zaal 2)</div>
+                    <div><span class="bold">Wanneer: </span><span id="when"></span></div>
                     <div><span class="bold">Stoelen:</span> Rij ?, stoel ?</div>
-                    <div><span class="bold">Tickets:</span></div>
-                    <div id="controletotaal"><span class="bold">Totaal ? ticket(s):</span> </div>
+                    <div><span class="bold">Tickets: </span><span id="alltickets"></span></div>
+                    <div id="controltotal"><span class="bold">Totaal <span id="totaltickets"></span> ticket(s):</span><span id="totalprice"></span> </div>
                 </div>
             </div>
-            <div id="stapvier">
-                <div class="staptitel">STAP 4: Vul je gegevens</div>
-                <div id="gegevens">
-                    <input type="text" name="voornaam" placeholder="Voornaam"></>
-                    <input type="text" name="achternaam" placeholder="Achternaam"></>
-                    <input type="text" name="email" placeholder="E-mailadres*" style="grid-column: 1/ span 2;"></>
-                    <input type="text" name="emailtoo" placeholder="E-mailadres*" style="grid-column: 1/ span 2;"></>
+            <div id="step4">
+                <div class="steptitle">STAP 4: Vul je gegevens</div>
+                <div id="userinfo">
+                    <input type="text" name="firstname" placeholder="Voornaam" id="firstname"></p>
+                    <input type="text" name="lastname" placeholder="Achternaam" id="lastname"></>
+                    <input type="text" name="email" placeholder="E-mailadres*" class="email" style="grid-row: 2;" id="emailone"></>
+                    <input type="text" name="emailtwo" placeholder="E-mailadres*" class="email" style="grid-row: 3;" id="emailtwo"></>
                 </div>
             </div>
-            <div id="stapvijf">
-                <div class="staptitel">STAP 5: KIES JE BETAALWIJZE</div>
-                <div id="betaalwijze">
-                    <input type="checkbox" name="betaalwijze" value="biosbon"><img alt="bioscoopbon"
+            <div id="step5">
+                <div class="steptitle">STAP 5: KIES JE BETAALWIJZE</div>
+                <div id="paymethod">
+                    <input type="checkbox" name="paymethod" value="biosbon" id="biosbon"><img alt="bioscoopbon"
                         src="./assets/img/biosbon.png">
-                    <input type="checkbox" name="betaalwijze" value="maestro"><img alt="maestro"
+                    <input type="checkbox" name="paymethod" value="maestro" id="maestro"><img alt="maestro"
                         src="./assets/img/maestro.png">
-                    <input type="checkbox" name="betaalwijze" value="ideal"><img alt="ideal"
+                    <input type="checkbox" name="paymethod" value="ideal" id="ideal"><img alt="ideal"
                         src="./assets/img/ideal.png">
                 </div>
-                <div id="voorwaarden">
-                    <input type="checkbox" name="voorwaarden" value="voorwaarden">
+                <div id="conditions">
+                    <input type="checkbox" name="terms" value="voorwaarden" id="terms">
                     <div>Ik ga akkoord met de <a href="#">algemene voorwaarden</a></div>
                 </div>
             </div>
         </div>
         <div id="filminfo">
-            <div><img alt="filmposter" src="https://placehold.co/200x300"></div>
-            <div id="filmomschrijving">
-                <div id="infotitel">filmnaam</div>
-                <div id="inforatings">ratings</div>
-                <div id="infodatum">releasedatum</div>
-                <div id="infoomschrijving">filmomschrijving</div>
+            <div><img id="infoimg" alt="filmposter" src=<?= $image ?>></div>
+            <!-- 200x300 -->
+            <div id="filmdescription">
+                <div id="infotitel"><?= $filmname ?></div>
+                <div id="inforatings"><?php
+                            $filledStars = floor($movie["rating"] / 2);
+                            $unfilledStars = 5 - $filledStars;
+                            for ($k = 0; $k < $filledStars; $k++) { ?>
+                                <img class="star" src="./assets/img/star_filled.png">
+                            <?php }
+                            for ($k = 0; $k < $unfilledStars; $k++) { ?>
+                                <img class="star" src="./assets/img/star_unfilled.png">
+                            <?php } ?></div>
+                <div id="infodate">Release: <?= $releasedate ?></div>
+                <div id="infodescription"><?= $description ?></div>
             </div>
         </div>
-        <div id="bestelbutton">
-            <input type="submit" value="AFREKENEN">
+        <div id="orderbutton">
+            <input id="topayment" type="submit" value="AFREKENEN" disabled>
         </div>
     </form>
 </div>

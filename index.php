@@ -1,5 +1,5 @@
 <?php
-
+include_once './core/db_connect.php';
 
 $view = '';
 
@@ -33,6 +33,16 @@ switch ($view) {
         $style = 'film.css';
         $js = 'film.js';
         break;
+    case 'login':
+        $page = 'login.php';
+        $style = 'login.css';
+        $js = 'login.js';
+        break;
+    case 'admin':
+        $page = 'admin.php';
+        $style = 'admin.css';
+        $js = 'admin.js';
+        break;
     default:
         $page = '404.php';
         $style = '404.css';
@@ -40,4 +50,4 @@ switch ($view) {
         break;
 }
 
-require_once "./views/". $page;
+require_once "./views/" . $page;

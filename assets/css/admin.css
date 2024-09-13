@@ -1,0 +1,29 @@
+#a-parentcontainer {
+  height: 80vh;
+  position: relative;
+  margin-top: 30vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: black;
+}
+
+.panel-container {
+  height: 80%;
+  width: 80%;
+  align-self: center;
+  justify-self: center;
+  background-color: white;
+}
+
+.panel-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+form {
+  display: grid;
+  height: 90%;
+  grid-template-rows: 90% 10%;
+}/*# sourceMappingURL=admin.css.map */

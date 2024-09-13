@@ -1,0 +1,105 @@
+[{
+    "id": 3,
+    "movie_id": 1,
+    "play_time": "2024-09-11 20:16:54",
+    "plays_this_week": true,
+    "plays_today": false,
+    "place_data": [{
+        "place": 0,
+        "available": true
+      },
+      {
+        "place": 1,
+        "available": false
+      },
+      {
+        "place": 2,
+        "available": false
+      },
+      {
+        "place": 3,
+        "available": false
+      },
+      {
+        "place": 4,
+        "available": true
+      },
+      {
+        "place": 5,
+        "available": true
+      },
+      {
+        "place": 6,
+        "available": true
+      },
+      {
+        "place": 7,
+        "available": false
+      },
+      {
+        "place": 8,
+        "available": true
+      },
+      {
+        "place": 9,
+        "available": true
+      },
+      {
+        "place": 10,
+        "available": false
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "movie_id": 2,
+    "play_time": "2024-09-11 18:16:54",
+    "plays_this_week": true,
+    "plays_today": false,
+    "place_data": [{
+        "place": 0,
+        "available": true
+      },
+      {
+        "place": 1,
+        "available": false
+      },
+      {
+        "place": 2,
+        "available": false
+      },
+      {
+        "place": 3,
+        "available": false
+      },
+      {
+        "place": 4,
+        "available": true
+      },
+      {
+        "place": 5,
+        "available": true
+      },
+      {
+        "place": 6,
+        "available": true
+      },
+      {
+        "place": 7,
+        "available": false
+      },
+      {
+        "place": 8,
+        "available": true
+      },
+      {
+        "place": 9,
+        "available": true
+      },
+      {
+        "place": 10,
+        "available": false
+      }
+    ]
+  }
+]

@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-#bestelpagina {
+#o-parentcontainer {
   width: 100%;
   top: 30vh;
   position: relative;
@@ -31,7 +31,7 @@ body {
   grid-template-columns: 5fr 1fr;
 }
 
-#titel {
+#title {
   background-color: white;
   color: #B97D46;
   grid-column: 1/span 2;
@@ -40,18 +40,19 @@ body {
   padding: 1%;
 }
 
-#datumtijd {
+#datetime {
   display: flex;
   grid-column: 1/span 2;
+  margin-bottom: 2%;
 }
-#datumtijd #filmname {
+#datetime #filmname {
   background-color: white;
   margin-right: 15px;
   height: 3vh;
   padding: 1vh;
   color: #B97D46;
 }
-#datumtijd select {
+#datetime select {
   background-color: white;
   height: 5vh;
   padding: 1vh;
@@ -60,41 +61,42 @@ body {
   margin-right: 15px;
 }
 
-#stappen {
+#steps {
   background-color: white;
+  display: none;
 }
-#stappen #stapeen {
+#steps #step1 {
   display: grid;
 }
-#stappen .staptitel {
+#steps .steptitle {
   color: #B97D46;
   font-size: 30px;
   padding: 2%;
 }
-#stappen #tickettabel {
+#steps #tickettable {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   border-bottom: 2px solid #707070;
   width: 95%;
   justify-self: center;
 }
-#stappen #prijstop {
+#steps #pricetop {
   display: grid;
   grid-template-columns: 8fr 1fr 1fr;
   border-bottom: 2px solid #707070;
   height: 6vh;
 }
-#stappen .prijzen {
+#steps .prices {
   display: grid;
   grid-template-columns: 8fr 1fr 1fr;
   align-content: center;
 }
-#stappen .prijzen select {
+#steps .prices select {
   border-color: #B97D46;
   background-color: white;
   color: #B97D46;
 }
-#stappen #voucher {
+#steps #voucher {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   height: 6vh;
@@ -102,16 +104,16 @@ body {
   align-content: center;
   grid-gap: 10px;
 }
-#stappen #voucher input {
+#steps #voucher input {
   border: 1px solid #B97D46;
 }
-#stappen #voucher button {
+#steps #voucher #addvoucher {
   background-color: #B97D46;
   color: white;
   border: none;
   padding: 1vh;
 }
-#stappen #controlebox {
+#steps #controlbox {
   border: 3px solid #B97D46;
   width: 93%;
   margin-left: 2%;
@@ -121,22 +123,26 @@ body {
   grid-template-rows: 3fr 2fr 1fr 1fr 1fr 1fr 3fr;
   color: #707070;
 }
-#stappen #controlebox #controleposter {
+#steps #controlbox #controlposter {
   grid-row: 1/span 7;
 }
-#stappen #controlebox #controletitel {
+#steps #controlbox #controlposter img {
+  height: 240px;
+  width: 160px;
+}
+#steps #controlbox #controltitle {
   font-size: 30px;
   grid-row: 1;
   grid-column: 2;
   align-self: center;
 }
-#stappen #controlebox .bold {
+#steps #controlbox .bold {
   font-family: "latobold";
 }
-#stappen #controlebox #controletotaal {
+#steps #controlbox #controltotal {
   align-self: center;
 }
-#stappen #gegevens {
+#steps #userinfo {
   display: grid;
   width: 50%;
   margin-left: 2%;
@@ -144,18 +150,29 @@ body {
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
-#stappen #gegevens input {
+#steps #userinfo input {
   border: 2px solid #B97D46;
   padding: 1vh;
 }
-#stappen #betaalwijze {
+#steps #userinfo #firstname {
+  grid-column: 1;
+  grid-row: 1;
+}
+#steps #userinfo #lastname {
+  grid-column: 2;
+  grid-row: 1;
+}
+#steps #userinfo .email {
+  grid-column: 1/span 2;
+}
+#steps #paymethod {
   display: grid;
   width: 50%;
   margin-left: 2%;
   grid-template-columns: 1fr 4fr 1fr 4fr 1fr 4fr;
   grid-gap: 5px;
 }
-#stappen #voorwaarden {
+#steps #conditions {
   margin-left: 2%;
   display: flex;
   width: 50%;
@@ -163,32 +180,51 @@ body {
   justify-items: start;
   align-items: center;
 }
-#stappen #voorwaarden input[type=checkbox] {
+#steps #conditions input[type=checkbox] {
   height: 5vh;
   width: 5vh;
 }
-#stappen input[type=checkbox] {
+#steps input[type=checkbox] {
   accent-color: #B97D46;
 }
 
 #filminfo {
   background-color: white;
-  height: 70vh;
+  height: 80vh;
+  display: none;
 }
-#filminfo #filmomschrijving {
+#filminfo #infoimg {
+  height: 300px;
+  width: 200px;
+  background-color: hotpink;
+}
+#filminfo #filmdescription {
   padding: 10%;
 }
 #filminfo #infotitel {
-  font-size: 30px;
+  font-size: 25px;
   color: #707070;
   padding-bottom: 2%;
 }
-#filminfo #infodatum {
-  font-size: 20px;
+#filminfo #infodate {
+  font-size: 17px;
   padding-bottom: 5%;
 }
+#filminfo #inforating {
+  display: grid;
+  height: 10vh;
+}
+#filminfo #inforating img {
+  height: 100%;
+}
+#filminfo #infodescription {
+  font-size: 15px;
+}
 
-#bestelbutton input[type=submit] {
+#orderbutton {
+  display: none;
+}
+#orderbutton input[type=submit] {
   background-color: #B97D46;
   color: white;
   border: none;
