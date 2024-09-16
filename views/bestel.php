@@ -13,35 +13,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    $lurl = 'https://annexbios.nickvz.nl/api/v1/playingMovies/' . $filmchoice;
-
-// Initialize cURL session
-$lch = curl_init($lurl);
-
-// Set cURL options
-curl_setopt($lch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', $authorization));
-curl_setopt($lch, CURLOPT_CUSTOMREQUEST, "GET");
-curl_setopt($lch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($lch, CURLOPT_FOLLOWLOCATION, true);
-
-// Execute cURL request
-$locationresult = curl_exec($lch);
-
-// Check for cURL errors
-if ($locationresult === false) {
-    echo 'cURL Error: ' . curl_error($lch);
-}
-
-// Close cURL session
-curl_close($lch);
-
-
-// var_dump($result);
-$locationres = json_decode($locationresult, true);
-// var_dump($res['data']);
-$locationdata = $locationres['data'][0];
-
-$playtime = strtotime($locationdata["play_time"]);
+    for($i = 0; $i < count($locationdata); $i++) {
+        if ($locationdata[$i]['movie_id'] == $filmchoice) {
+            $playtime = $locationdata[$i]['play_time'];
+        }
+    }
+    
+$playtime = strtotime($playtime);
 }
 ?>
 <div id="o-parentcontainer">
