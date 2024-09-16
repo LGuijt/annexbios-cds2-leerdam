@@ -34,36 +34,36 @@
 <body>
     <?php
 
-$authorization = "Authorization: Bearer 2b8e7f9a3c1d5e4f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d";
-$url = 'https://u231195.gluwebsite.nl/api/v1/movieData';
+// $authorization = "Authorization: Bearer 2b8e7f9a3c1d5e4f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d";
+// $url = 'https://u231195.gluwebsite.nl/api/v1/movieData';
 
-// Initialize cURL session
-$ch = curl_init($url);
+// // Initialize cURL session
+// $ch = curl_init($url);
 
-// Set cURL options
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', $authorization));
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+// // Set cURL options
+// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', $authorization));
+// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
-// Execute cURL request
-$result = curl_exec($ch);
+// // Execute cURL request
+// $result = curl_exec($ch);
 
-// Check for cURL errors
-if ($result === false) {
-    echo 'cURL Error: ' . curl_error($ch);
-} else {
-    // Check HTTP status code
-    $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    echo 'HTTP Status Code: ' . $http_status . "\n";
-    echo 'Response: ' . $result;
-}
+// // Check for cURL errors
+// if ($result === false) {
+//     echo 'cURL Error: ' . curl_error($ch);
+// } else {
+//     // Check HTTP status code
+//     $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+//     echo 'HTTP Status Code: ' . $http_status . "\n";
+//     echo 'Response: ' . $result;
+// }
 
-// Close cURL session
-curl_close($ch);
+// // Close cURL session
+// curl_close($ch);
 
 
-    var_dump($result);
+//     var_dump($result);
 
     $file_json = file_get_contents('assets/json/dummylocation.json');
     $locationdata = json_decode($file_json, true);
