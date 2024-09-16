@@ -106,7 +106,7 @@ function updatePrice() {
 }
 
 document.getElementById("addvoucher").addEventListener('click', async function() {
-    var voucher = document.getElementById("vouchercode").value;
+    var voucher = document.getElementById("vouchercode").value; 
 
     const res = await fetch('/api/tickets/checkvoucher.php', {
         method: 'POST',
