@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <?php
+<?php
 
 $authorization = "Authorization: Bearer 2b8e7f9a3c1d5e4f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6a7b8c9d";
 $url = 'https://annexbios.nickvz.nl/api/v1/movieData';
@@ -58,21 +58,16 @@ if ($result === false) {
 curl_close($ch);
 
 
-    // var_dump($result);
-    $res = json_decode($result, true);
-    // var_dump($res['data']);
-    $moviedata = $res['data'];
-    // var_dump($moviedata);
-    foreach ($moviedata as $movie) {
-        echo $movie['title'];
-    }
-
-    $file_json = file_get_contents('assets/json/dummylocation.json');
-    $locationdata = json_decode($file_json, true);
-
-    $file_json = file_get_contents('assets/json/dummymovie.json');
-    $moviedata = json_decode($file_json, true);
-    ?>
+// var_dump($result);
+$res = json_decode($result, true);
+// var_dump($res['data']);
+$moviedata = $res['data'];
+// var_dump($moviedata);
+// $file_json = file_get_contents('assets/json/dummylocation.json');
+// $locationdata = json_decode($file_json, true);
+// $file_json = file_get_contents('assets/json/dummymovie.json');
+// $moviedata = json_decode($file_json, true);
+?>
     <div id="mainHeader">
         <div id="upperHalf">
             <div id="logo">
@@ -92,6 +87,11 @@ curl_close($ch);
                 <select name="filmchoice" id="filmchoice">
                     <option>Kies je film</option>
                     <?php 
+                    foreach ($moviedata as $movie) {
+                        ?>
+                        <option value="<?= $movie['api_id'] ?>"><?= $movie['title'] ?></option>
+                        <?php
+                    }
                     ?>
                 </select>
                 <input type="submit" value="BESTEL TICKETS">
