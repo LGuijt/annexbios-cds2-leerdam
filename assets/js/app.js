@@ -7,14 +7,6 @@ async function loadContent(){
 
     const data = await response.json();
     dataArray = data.data;
-    console.log(dataArray);
-    for (let i = 0; i < dataArray.length; i++){
-      console.log(dataArray[i].title);
-      const option = document.createElement('option');
-      option.value = dataArray[i].api_id;
-      option.innerHTML = dataArray[i].title;
-      document.getElementById('filmchoice').appendChild(option);
-    }
 }
 
 loadContent();
