@@ -4,7 +4,6 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $filmchoice = $_POST['filmchoice'];
 
-
     foreach ($moviedata as $movie) {
         if ($movie['api_id'] == $filmchoice) {
             $filmname = $movie['title'];
@@ -14,12 +13,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    foreach ($locationdata as $location) {
-        if ($location['movie_id'] == $filmchoice) {
-            $playtime = $location['play_time'];
-        }
-    }
-    $playtime = strtotime($playtime);
+    $lurl = 'https://annexbios.nickvz.nl/api/v1/playingMovies/' . $filmchoice;
+
+// Initialize cURL session
+$lch = curl_init($lurl);
+
+// Set cURL options
+curl_setopt($lch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', $authorization));
+curl_setopt($lch, CURLOPT_CUSTOMREQUEST, "GET");
+curl_setopt($lch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($lch, CURLOPT_FOLLOWLOCATION, true);
+
+// Execute cURL request
+$locationresult = curl_exec($lch);
+
+// Check for cURL errors
+if ($locationresult === false) {
+    echo 'cURL Error: ' . curl_error($lch);
+}
+
+// Close cURL session
+curl_close($lch);
+
+
+// var_dump($result);
+$locationres = json_decode($locationresult, true);
+// var_dump($res['data']);
+$locationdata = $locationres['data'][0];
+
+$playtime = strtotime($locationdata["play_time"]);
 }
 ?>
 <div id="o-parentcontainer">
