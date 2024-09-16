@@ -87,7 +87,7 @@
         <div id="lowerHalf">
             <form method="post" action="bestel">
                 <div>KOOP JE TICKETS</div>
-                <select name="filmchoice">
+                <select name="filmchoice" id="filmchoice">
                     <option>Kies je film</option>
                     <?php 
                     foreach ($moviedata as $movie) {
