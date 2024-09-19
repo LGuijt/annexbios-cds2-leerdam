@@ -18,6 +18,11 @@ biosBon = false;
 maestro = false;
 ideal = false;
 termsCheck = false;
+seatCounter = 0;
+rowText = "";
+seatText = "";
+seatSelected = [];
+seatCheckboxes = document.getElementsByClassName("seatsinput");
 
 document.getElementById('o-date').addEventListener('change', function() {
     if(this.value !== "start"){
@@ -199,10 +204,75 @@ document.getElementById("terms").addEventListener('change', function() {
     checkAll();
 });
 
+function seatChooser(number){
+    
+    if(document.getElementById("seat"+ number).checked){
+        document.getElementById("seatimg"+ number).src = "assets/img/seatselected.png";
+        allSeats = seatChecker();
+        seatsText(allSeats);
+        seatCounter++;
+        checkAll();
+    } else {
+        document.getElementById("seatimg"+ number).src = "assets/img/seatfree.png";
+        allSeats = seatChecker();
+        seatsText(allSeats);
+        seatCounter--;
+        checkAll();
+    }
+}
+
+function seatChecker(){
+    seatSelected = [];
+    for(i = 0; i < seatCheckboxes.length; i++){
+        if(seatCheckboxes[i].checked){
+            seatSelected.push(seatCheckboxes[i].value);
+        }
+    }
+    return seatSelected;
+}
+
+function seatsText(array){
+    rowText = "";
+    for(i = 0; i < array.length; i++){
+        row = rowCounter(array[i], true);
+        seat = rowCounter(array[i], false);
+        rowText += "Rij " + row + " stoel " + seat +", ";
+    }
+    document.getElementById("rows").innerHTML = rowText;
+}
+
 function checkAll() {
-    if(dateCheck && timeCheck && allTickets > 0 && lastNameCheck && emailCheck && paymentCheck && termsCheck){
+    if(dateCheck && timeCheck && allTickets > 0 && seatCounter == allTickets && lastNameCheck && emailCheck && paymentCheck && termsCheck){
         document.getElementById("topayment").disabled = false;
     } else {
         document.getElementById("topayment").disabled = true;
+    }
+}
+
+function rowCounter(number, row){
+    if (number < 9){
+        if(row){
+            return 1;
+        } else {
+            return number;
+        }
+    } else if (number < 17){
+        if(row){
+            return 2;
+        } else {
+            return number - 8;
+        }
+    } else if (number < 25){
+        if(row){
+            return 3;
+        } else {
+            return number - 16;
+        }
+    } else if (number < 33){
+        if(row){
+            return 4;
+        } else {
+            return number - 24;
+        }
     }
 }
