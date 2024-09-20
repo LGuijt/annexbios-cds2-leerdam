@@ -62,4 +62,3 @@ category.addEventListener("click", () => {
 });
 
 
-
