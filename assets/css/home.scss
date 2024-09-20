@@ -51,7 +51,7 @@
     align-items: center;
     width: 20vw;
     height: 5vh;
-    background-color:white;
+    background-color: white;
     color: $boxFill;
     font-size: 1.2em;
 }
@@ -87,7 +87,7 @@
     padding-left: 2vw;
     display: flex;
     flex-direction: row;
-    align-items:center;
+    align-items: center;
     margin-bottom: 2vh;
 }
 
@@ -127,7 +127,6 @@ p.infoP {
     font-weight: 900;
     padding-left: 2vw;
     align-items: center;
-    
 }
 
 #whiteBoxesContainer {
@@ -154,21 +153,26 @@ p.infoP {
 }
 
 #filmsBox {
-width: 6vw;
-display: flex;
+    width: 6vw;
+    display: flex;
 }
+
 #thisWeekBox {
     width: 10vw;
     display: flex;
 }
+
 #todayBox {
     width: 8vw;
     display: flex;
 }
+
 #categoryBox {
     width: 12vw;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    position: relative; /* Ensure the custom arrow is positioned correctly */
 }
 
 #categories {
@@ -176,35 +180,54 @@ display: flex;
     color: $boxFill;
 }
 
+#customDropdown {
+    position: relative;
+    width: 100%;
+}
+
+
+
 #movieContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    width: 100%; /* Ensure it takes full width */
+    margin-top: 20vh;
 }
 
 .movieRow {
     display: flex;
     flex-direction: column;
     margin-top: 7.5vh;
+    overflow: hidden;
 }
 
+.categoryItem {
+    padding: 10px;
+    cursor: pointer;
+}
 .movieColumn {
-    width: 13vw;
-    height: 80vh;
+    width: 15%; /* Adjusted width to fit 6 columns */
+    height: auto; /* Adjusted to fit content */
     background-color: white;
     z-index: 1;
-    margin: 0.2vw 0.2vw 0.2vw 0.2vw;
+    margin: 0.5vw; /* Spacing between columns */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 #movieImage {
-    width: 13vw;
+    width: 100%;
     height: auto;
 }
 
 #starContainer {
-    margin-top: 2vh;
-    width: 12vw;
-    height: 2vh;
+    width: 100%; /* Ensure stars take up full width */
+    display: flex;
+    justify-content: center; /* Center stars horizontally */
 }
 
 .star {
@@ -215,7 +238,13 @@ display: flex;
 #movieTitle {
     color: #666666;
     font-weight: bold;
+    -webkit-box-orient: vertical; /* Vertical orientation of the box */
+    display: -webkit-box;
     font-size: 1.4em;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    margin-bottom: 0.5em; /* Adjust if needed */
+    text-align: center; /* Center the title */
 }
 
 #releaseText {
@@ -227,11 +256,17 @@ display: flex;
 #description {
     color: #666666;
     font-size: 0.75em;
+    display: -webkit-box; /* Use the flexbox layout model */
+    -webkit-box-orient: vertical; /* Vertical orientation of the box */
+    -webkit-line-clamp: 4; /* Number of lines to display */
+    overflow: hidden; /* Hide the content that exceeds the set number of lines */
+    text-overflow: ellipsis; /* Add ellipsis (...) to the end of the last visible line */
+    text-align: center; /* Center text horizontally */
 }
 
 #ticketsButton {
     margin-top: 3vh;
-    width: 9vw;
+    width: 100%; /* Make it stretch across the width of the column */
     font-size: 0.8em;
     font-weight: bold;
     display: flex;
@@ -240,10 +275,11 @@ display: flex;
     height: 5vh;
     background-color: $boxFill;
     color: white;
+    text-align: center;
 }
 
 #allFilmsButton {
-    margin: 5vh 63vw 4vh 0;
+    margin: 5vh 0 4vh; /* Adjusted margin for centering */
     width: 15vw;
     min-width: 150px;
     font-size: 1em;
@@ -254,9 +290,62 @@ display: flex;
     height: 5vh;
     background-color: $boxFill;
     color: white;
-    z-index: 1;
     padding: 10px 20px;
     text-align: center;
+}
+
+#categoryMenu {
+    width: 12vw;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: none; /* Hide by default */
+    position: absolute; /* Position it below the category box */
+    top: 100%; /* Position it directly below the category box */
+    left: 0;
+    z-index: 2; /* Ensure it appears above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+}
+
+#dropdownArrow {
+    position: absolute;
+    right: 10px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $boxFill; /* Adjust the color as needed */
+    pointer-events: none; /* Allow clicks to pass through to the select */
+}
+
+#categorySelect::-ms-expand {
+    display: none; /* Hide dropdown arrow in IE */
+}
+
+#categorySelect {
+    width: 100%;
+    background: transparent; /* Make the select background transparent */
+    border: none; /* Remove default border */
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    color: $boxFill;
+    appearance: none; /* Remove default styling */
+    cursor: pointer;
+}
+
+#categoryBox img {
+    margin-right: 0.5vw;
+}
+
+#dropDownArrow.open {
+    transform: rotate(180deg); /* Rotate the arrow when the menu is open */
+}
+
+#mainFooter {
+    margin-top: 20vh;
 }
 
 @media (max-width: 1600px) {
