@@ -22,6 +22,21 @@
     margin-top: 1rem;
 }
 
+.voucher-container{
+    display: grid;
+    margin-top: 1rem;
+}
+
+#voucheradd{
+    margin: 10px;
+}
+
+.voucherdel{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
 form{
     display: grid;
     height: 90%;

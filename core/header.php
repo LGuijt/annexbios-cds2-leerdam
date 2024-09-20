@@ -60,7 +60,7 @@
 
     // var_dump($result);
     $res = json_decode($result, true);
-    // var_dump($res['data']);
+    // var_dump($res);
     $moviedata = $res['data'];
     // var_dump($moviedata);
 // $file_json = file_get_contents('assets/json/dummylocation.json');
@@ -92,7 +92,7 @@
     $locationres = json_decode($locationresult, true);
     // var_dump($locationres);
     $locationdata = $locationres['data'];
-    //  var_dump($locationdata);
+    // var_dump($locationdata);
     
     ?>
     <div id="mainHeader">

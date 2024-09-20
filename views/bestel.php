@@ -14,18 +14,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    for($i = 0; $i < count($locationdata); $i++) {
+    for ($i = 0; $i < count($locationdata); $i++) {
         if ($locationdata[$i]['movie_id'] == $filmchoice) {
             $playtime = $locationdata[$i]['play_time'];
             $chairs = $locationdata[$i]['place_data'];
+            $locationId = $locationdata[$i]['location_movie_id'];
         }
     }
-    
-$playtime = strtotime($playtime);
+
+    $playtime = strtotime($playtime);
 }
 ?>
 <div id="o-parentcontainer">
-    <form id="container">
+    <form id="container" method="post" action="./api/seats/seatreservation.php">
         <div id="title">TICKETS BESTELLEN</div>
         <div id="datetime">
             <div id="filmname"><?= $filmname ?></div>
@@ -35,7 +36,7 @@ $playtime = strtotime($playtime);
             </select>
             <select name="time" id="o-time">
                 <option value="start">TIJD</option>
-                <option value="<?= date("H:i:s", $playtime)?>"><?= date("H:i", $playtime)?></option>
+                <option value="<?= date("H:i:s", $playtime) ?>"><?= date("H:i", $playtime) ?></option>
             </select>
         </div>
         <div id="steps">
@@ -97,32 +98,43 @@ $playtime = strtotime($playtime);
                 <div class="steptitle">STAP 2: KIES JE STOEL</div>
                 <div id="placecontainer">
                     <?php
-                // var_dump($chairs);
-                ?>
-                <img id="screen" src="./assets/img/filmdoek.png">
-                <div id="seatscontainer">
-                    <?php
-                    foreach($chairs as $chair){
-                        if($chair['available'] == true){
-                            ?>
-                            <label class="seat">
-                                <input type="checkbox" id="seat<?= $chair['place']?>" name="seat" class="seatsinput" value="<?= $chair['place']?>" onchange="seatChooser(<?= $chair['place']?>)">
-                                <img id="seatimg<?= $chair['place']?>" src="./assets/img/seatfree.png">
-                            </label>
-                            <?php
-                        } else {
-                            ?>
-                            <div class="seat" id="seat<?= $chair['place']?>"><img src="./assets/img/seattaken.png"></>
-                            <?php
-                        }
-                    }
+                    // var_dump($chairs);
                     ?>
-                </div>
-                <div id="legendcontainer">
-                <div id="legendfree" class="legenditem"><p>Vrij</p></div>
-                <div id="legendtaken" class="legenditem"><p>Bezet</p></div>
-                <div id="legendselected" class="legenditem"><p>Jouw Selectie</p></div>
-                </div>
+                    <img id="screen" src="./assets/img/filmdoek.png">
+                    <div id="seatscontainer">
+                        <?php
+                        foreach ($chairs as $chair) {
+                            if ($chair['available'] == true) {
+                                ?>
+                                <label class="seat">
+                                    <input type="checkbox" id="seat<?= $chair['place'] ?>" name="seat[]" class="seatsinput"
+                                        value="<?= $chair['place'] ?>" onchange="seatChooser(<?= $chair['place'] ?>)">
+                                    <img id="seatimg<?= $chair['place'] ?>" src="./assets/img/seatfree.png">
+                                </label>
+                                <?php
+                            } else {
+                                ?>
+                                <label class="seat">
+                                    <input type="checkbox" name="taken" value="taken" disabled>
+                                    <img src="./assets/img/seattaken.png">
+                                </label>
+
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                    <div id="legendcontainer">
+                        <div id="legendfree" class="legenditem">
+                            <p>Vrij</p>
+                        </div>
+                        <div id="legendtaken" class="legenditem">
+                            <p>Bezet</p>
+                        </div>
+                        <div id="legendselected" class="legenditem">
+                            <p>Jouw Selectie</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="step3">
@@ -132,8 +144,8 @@ $playtime = strtotime($playtime);
                     <!-- image is 160x240 -->
                     <div id="controltitle"><span class="bold"><?= $filmname ?></span></div>
                     <div>
-                        <?php 
-                        for($i = 0; $i < count($kijkwijzers); $i++){
+                        <?php
+                        for ($i = 0; $i < count($kijkwijzers); $i++) {
                             ?>
                             <img class="kijkwijzer" src=<?= $kijkwijzers[$i]["image"] ?>>
                             <?php
@@ -142,9 +154,10 @@ $playtime = strtotime($playtime);
                     </div>
                     <div><span class="bold">Bioscoop:</span> Leerdam (zaal 2)</div>
                     <div><span class="bold">Wanneer: </span><span id="when"></span></div>
-                    <div id="boldchairs"><span class="bold" >Stoelen:</span> <span id="rows"></span></div>
+                    <div id="boldchairs"><span class="bold">Stoelen:</span> <span id="rows"></span></div>
                     <div><span class="bold">Tickets: </span><span id="alltickets"></span></div>
-                    <div id="controltotal"><span class="bold">Totaal <span id="totaltickets"></span> ticket(s):</span><span id="totalprice"></span> </div>
+                    <div id="controltotal"><span class="bold">Totaal <span id="totaltickets"></span>
+                            ticket(s):</span><span id="totalprice"></span> </div>
                 </div>
             </div>
             <div id="step4">
@@ -152,8 +165,10 @@ $playtime = strtotime($playtime);
                 <div id="userinfo">
                     <input type="text" name="firstname" placeholder="Voornaam" id="firstname"></p>
                     <input type="text" name="lastname" placeholder="Achternaam" id="lastname"></d>
-                    <input type="text" name="email" placeholder="E-mailadres*" class="email" style="grid-row: 2;" id="emailone"></d>
-                    <input type="text" name="emailtwo" placeholder="E-mailadres*" class="email" style="grid-row: 3;" id="emailtwo"></d>
+                    <input type="text" name="email" placeholder="E-mailadres*" class="email" style="grid-row: 2;"
+                        id="emailone"></d>
+                    <input type="text" name="emailtwo" placeholder="E-mailadres*" class="email" style="grid-row: 3;"
+                        id="emailtwo"></d>
                 </div>
             </div>
             <div id="step5">
@@ -178,18 +193,22 @@ $playtime = strtotime($playtime);
             <div id="filmdescription">
                 <div id="infotitel"><?= $filmname ?></div>
                 <div id="inforatings"><?php
-                            $filledStars = floor($movie["rating"] / 2);
-                            $unfilledStars = 5 - $filledStars;
-                            for ($k = 0; $k < $filledStars; $k++) { ?>
-                                <img class="star" src="./assets/img/star_filled.png">
-                            <?php }
-                            for ($k = 0; $k < $unfilledStars; $k++) { ?>
-                                <img class="star" src="./assets/img/star_unfilled.png">
-                            <?php } ?></div>
+                $filledStars = floor($movie["rating"] / 2);
+                $unfilledStars = 5 - $filledStars;
+                for ($k = 0; $k < $filledStars; $k++) { ?>
+                        <img class="star" src="./assets/img/star_filled.png">
+                    <?php }
+                for ($k = 0; $k < $unfilledStars; $k++) { ?>
+                        <img class="star" src="./assets/img/star_unfilled.png">
+                    <?php
+                }
+                ?>
+                </div>
                 <div id="infodate">Release: <?= $releasedate ?></div>
                 <div id="infodescription"><?= $description ?></div>
             </div>
         </div>
+        <input type="hidden" name="filmid" value="<?= $locationId ?>">
         <div id="orderbutton">
             <input id="topayment" type="submit" value="AFREKENEN" disabled>
         </div>
