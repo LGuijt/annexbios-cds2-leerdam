@@ -120,15 +120,24 @@ body {
   padding: 1%;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 3fr 2fr 1fr 1fr 1fr 1fr 3fr;
+  grid-template-rows: 3fr 2fr 1fr 1fr auto 1fr 3fr;
   color: #707070;
+  max-height: 40vh;
+}
+#steps #controlbox #boldchairs {
+  max-height: 5vh;
 }
 #steps #controlbox #controlposter {
   grid-row: 1/span 7;
+  grid-column: 1;
+  height: 40vh;
+  margin-right: 2%;
 }
 #steps #controlbox #controlposter img {
-  height: 240px;
-  width: 160px;
+  height: 100%;
+}
+#steps #controlbox .kijkwijzer {
+  height: 7vh;
 }
 #steps #controlbox #controltitle {
   font-size: 30px;
@@ -190,7 +199,8 @@ body {
 
 #filminfo {
   background-color: white;
-  height: 80vh;
+  height: auto;
+  max-height: 100vh;
   display: none;
 }
 #filminfo #infoimg {
@@ -234,4 +244,65 @@ body {
   font-size: 30px;
   font-family: "latobold";
   margin-bottom: 5vh;
+}
+
+#step2 {
+  display: flex;
+  flex-direction: column;
+}
+
+#placecontainer {
+  width: 40vw;
+  align-self: center;
+  min-height: 40vh;
+  display: grid;
+  grid-template-rows: 10vh auto;
+}
+#placecontainer #screen {
+  width: 100%;
+}
+#placecontainer #seatscontainer {
+  display: grid;
+  grid-template-columns: 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh;
+  row-gap: 1vh;
+  padding: 5px;
+  margin: 5px;
+  justify-content: center;
+}
+#placecontainer #seatscontainer .seat {
+  height: 5vh;
+  width: 5vh;
+}
+#placecontainer #seatscontainer .seat input[type=checkbox] {
+  display: none;
+}
+#placecontainer #seatscontainer .seat img {
+  height: 100%;
+  width: 100%;
+}
+#placecontainer #legendcontainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+#placecontainer .legenditem {
+  max-height: 5vh;
+  color: white;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+}
+#placecontainer .legenditem p {
+  margin: 0;
+}
+#placecontainer #legendfree {
+  background-color: #B97D46;
+  grid-column: 1;
+}
+#placecontainer #legendtaken {
+  background-color: #95520B;
+  grid-column: 2;
+}
+#placecontainer #legendselected {
+  background-color: #DC7B0A;
+  grid-column: 3;
 }/*# sourceMappingURL=bestel.css.map */
