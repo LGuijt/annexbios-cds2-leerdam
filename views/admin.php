@@ -8,19 +8,19 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
     exit();
 }
 
-if($_SERVER['REQUEST_METHOD'] == "POST"){
-    if (isset($_POST['delete'])){
-        var_dump($_POST['vouchers']);
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (isset($_POST['delete'])) {
+        // var_dump($_POST['vouchers']);
         foreach ($_POST['vouchers'] as $voucher) {
             $deletevoucher = $con->prepare("DELETE FROM vouchers WHERE id = ?");
             $deletevoucher->bind_param("i", $voucher);
             $deletevoucher->execute();
         }
-    } else if (isset($_POST['add'])){
+    } else if (isset($_POST['add'])) {
         echo "add";
         $createvoucher = $con->prepare("INSERT INTO vouchers (code, amount) VALUES (?, ?)");
         $createvoucher->bind_param("si", $code, $amount);
-        $code = $_POST['vouchercode']; 
+        $code = $_POST['vouchercode'];
         $amount = $_POST['discount'];
         $createvoucher->execute();
     }
@@ -36,15 +36,21 @@ $readvoucher->execute();
     <div class="panel-container">
         <div class="panel-title">All vouchers</div>
         <form action="admin" method="post" id="formD">
-            <div id="voucher-container">
+            <div class="voucher-container">
+                <div class="voucherdel">
+                    <div></div>
+                    <spam>Voucher_ID</spam>
+                    <spam>Code</spam>
+                    <spam>Korting</spam>
+                </div>
                 <?php
                 while ($readvoucher->fetch()) {
                     ?>
-                    <div>
-                    <input type="checkbox" name="vouchers[]" value="<?=$rId?>">
-                    <span><?= $rId ?></span>
-                    <span><?= $rCode ?></span>
-                    <span><?= $rAmount ?></span>
+                    <div class="voucherdel">
+                        <input type="checkbox" name="vouchers[]" value="<?= $rId ?>">
+                        <span><?= $rId ?></span>
+                        <span><?= $rCode ?></span>
+                        <span><?= $rAmount ?></span>
                     </div>
                     <?php
                 }
@@ -56,7 +62,7 @@ $readvoucher->execute();
     <div class="panel-container">
         <div class="panel-title">Add new voucher</div>
         <form action="admin" method="post" id="formC">
-            <div id="voucher-container">
+            <div class="voucher-container" id="voucheradd">
                 <label for="vouchercode">Vouchercode</label>
                 <input type="text" name="vouchercode" id="vouchercode">
                 <label for="discount">Discount</label>
