@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: 0.25fr 1fr 1fr 1fr 1fr;
 
-  #footerinfo {
+  #footerInfo {
     height: 46vh;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
@@ -37,12 +37,12 @@
     }
   }
 
-  #footernav, #footersocial {
+  #footerNav, #footerSocial {
     display: grid;
     align-content: center;
     grid-template-rows: 1fr 1fr 1fr;
 
-    #navtop, #socialtop {
+    #navTop, #socialTop {
       font-size: 25px;
       font-family: "latobold";
       padding-left: 5%;
@@ -50,7 +50,7 @@
       padding-bottom: 4%;
     }
 
-    #navlinks, #sociallinks {
+    #navLinks, #socialLinks {
         display: grid;
         padding-top: 4%;
         padding-left: 5%;
@@ -65,7 +65,7 @@
       height: 35px;
     }
 
-    #sociallinks {
+    #socialLinks {
       grid-template-columns: 1fr 1fr 1fr 4fr; 
     }
 

@@ -1,6 +1,6 @@
 @import "./global";
 
-#o-parentcontainer{
+#oParentContainer{
     width: 100%;
     top: 30vh;
     position: relative;
@@ -28,12 +28,12 @@
     padding: 1%;
 }
 
-#datetime{
+#dateTime{
     display: flex;
     grid-column: 1 / span 2;
     margin-bottom: 2%;
 
-    #filmname {
+    #filmName {
         background-color: white;
         margin-right: 15px;
         height: 3vh;
@@ -59,13 +59,13 @@
     display: grid;
     }
 
-    .steptitle {
+    .stepTitle {
         color: $boxFill;
         font-size: 30px;
         padding: 2%;
     }
 
-    #tickettable {
+    #ticketTable {
         display: grid;
         grid-template-rows: 1fr 1fr 1fr 1fr;
         border-bottom: 2px solid $footerFill;
@@ -73,7 +73,7 @@
         justify-self: center;
     }
 
-    #pricetop{
+    #priceTop{
         display: grid;
         grid-template-columns: 8fr 1fr 1fr;
         border-bottom: 2px solid $footerFill;
@@ -104,7 +104,7 @@
             border: 1px solid $boxFill;
         }
 
-        #addvoucher {
+        #addVoucher {
             background-color: $boxFill;
             color: white;
             border: none;
@@ -112,7 +112,7 @@
         }
     }
 
-    #controlbox{
+    #controlBox{
         border: 3px solid $boxFill;
         width: 93%;
         margin-left: 2%;
@@ -123,11 +123,11 @@
         color: $footerFill;
         max-height: 40vh;
 
-        #boldchairs{
+        #boldChairs{
             max-height: 5vh;
         }
 
-        #controlposter{
+        #controlPoster{
             grid-row: 1/ span 7;
             grid-column: 1;
             height: 40vh;
@@ -141,7 +141,7 @@
             height: 7vh;
         }
 
-        #controltitle{
+        #controlTitle{
             font-size: 30px;
             grid-row: 1;
             grid-column: 2;
@@ -152,12 +152,12 @@
             font-family: "latobold";
         }
 
-        #controltotal{
+        #controlTotal{
             align-self:center;
         }
     }
 
-    #userinfo{
+    #userInfo{
         display: grid;
         width: 50%;
         margin-left: 2%;
@@ -170,12 +170,12 @@
             padding: 1vh;
         }
 
-        #firstname{
+        #firstName{
             grid-column: 1;
             grid-row: 1;
         }
 
-        #lastname{
+        #lastName{
             grid-column: 2;
             grid-row: 1;
         }
@@ -185,7 +185,7 @@
         }
     }
 
-    #paymethod{
+    #payMethod{
         display: grid;
         width: 50%;
         margin-left: 2%;
@@ -214,34 +214,34 @@
 
 }
 
-#filminfo{
+#filmInfo{
     background-color: white;
     height: auto;
     max-height: 100vh;
     display:none;
 
-    #infoimg{
+    #infoImg{
         height: 300px;
         width: 200px;
         background-color: hotpink;
     }
 
-    #filmdescription{
+    #filmDescription{
         padding: 10%;
     }
 
-    #infotitel{
+    #infoTitel{
         font-size: 25px;
         color: $footerFill;
         padding-bottom: 2%;
     }
 
-    #infodate{
+    #infoDate{
         font-size: 17px;
         padding-bottom: 5%;
     }
 
-    #inforating{
+    #infoRating{
         display: grid;
         height: 10vh;
 
@@ -250,12 +250,12 @@
         }
     }
 
-    #infodescription{
+    #infoDescription{
        font-size: 15px;
     }
 }
 
-#orderbutton{
+#orderButton{
     display: none;
 
     input[type=submit]{
@@ -277,7 +277,7 @@
     flex-direction: column;
 }
 
-#placecontainer{
+#placeContainer{
     width: 40vw;
     align-self: center;
     min-height: 40vh;
@@ -288,7 +288,7 @@
         width: 100%;
     }
 
-    #seatscontainer{
+    #seatsContainer{
         display: grid;
         grid-template-columns: 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh;
         row-gap: 1vh;
@@ -311,12 +311,12 @@
         }
     }
 
-    #legendcontainer{
+    #legendContainer{
         display: grid;
         grid-template-columns: auto auto auto;
     }
 
-    .legenditem{
+    .legendItem{
         max-height: 5vh;
         color: white;
         margin: 5px;
@@ -328,17 +328,17 @@
         }
     }
 
-    #legendfree{
+    #legendFree{
         background-color: $boxFill;
         grid-column: 1;
     }
 
-    #legendtaken{
+    #legendTaken{
         background-color: #95520B;
         grid-column: 2;
     }
     
-    #legendselected{
+    #legendSelected{
         background-color: #DC7B0A;
         grid-column: 3;
     }

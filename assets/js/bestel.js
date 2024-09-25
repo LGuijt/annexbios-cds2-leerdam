@@ -22,9 +22,9 @@ seatCounter = 0;
 rowText = "";
 seatText = "";
 seatSelected = [];
-seatCheckboxes = document.getElementsByClassName("seatsinput");
+seatCheckboxes = document.getElementsByClassName("seatsInput");
 
-document.getElementById('o-date').addEventListener('change', function() {
+document.getElementById('oDate').addEventListener('change', function() {
     if(this.value !== "start"){
         dateCheck = true;
         date = this.value;
@@ -35,7 +35,7 @@ document.getElementById('o-date').addEventListener('change', function() {
     whenUpdate();
 });
 
-document.getElementById('o-time').addEventListener('change', function() {
+document.getElementById('oTime').addEventListener('change', function() {
     if(this.value !== "start"){
         timeCheck = true;
         time = this.value;
@@ -49,9 +49,9 @@ document.getElementById('o-time').addEventListener('change', function() {
 function stepCheck() {
     if(dateCheck && timeCheck){
         document.getElementById("steps").style.display = "block";
-        document.getElementById("filminfo").style.display = "block";
-        document.getElementById("orderbutton").style.display = "block";
-        document.getElementById("datetime").style.marginBottom = "0";
+        document.getElementById("filmInfo").style.display = "block";
+        document.getElementById("orderButton").style.display = "block";
+        document.getElementById("dateTime").style.marginBottom = "0";
     }
 }
 
@@ -82,7 +82,7 @@ function updates() {
 }
 
 function updateTickets() {
-    allTickets = document.getElementById("alltickets");
+    allTickets = document.getElementById("allTickets");
     if (normalTickets > 0 && childTickets > 0 && seniorTickets > 0) {
         allTickets.innerHTML = normalTickets + "x normaal, " + childTickets + "x kind en " + seniorTickets + "x senior";
     } else if (normalTickets > 0 && childTickets > 0) {
@@ -102,16 +102,16 @@ function updateTickets() {
 
 function updatePrice() {
     allTickets = parseInt(normalTickets) + parseInt(childTickets) + parseInt(seniorTickets);
-    document.getElementById("totaltickets").innerHTML = allTickets;
+    document.getElementById("totalTickets").innerHTML = allTickets;
     totalPrice = (normalTickets * 9) + (childTickets * 5) + (seniorTickets * 7);
     if(discount){
         totalPrice = totalPrice - discountPrice;
     }
-    document.getElementById("totalprice").innerHTML = " €" + totalPrice + ",-";
+    document.getElementById("totalPrice").innerHTML = " €" + totalPrice + ",-";
 }
 
-document.getElementById("addvoucher").addEventListener('click', async function() {
-    var voucher = document.getElementById("vouchercode").value; 
+document.getElementById("addVoucher").addEventListener('click', async function() {
+    var voucher = document.getElementById("voucherCode").value; 
 
     const res = await fetch('./api/tickets/checkvoucher.php', {
         method: 'POST',
@@ -127,27 +127,27 @@ document.getElementById("addvoucher").addEventListener('click', async function()
     updatePrice();
 });
 
-document.getElementById("lastname").addEventListener('change', function() {
+document.getElementById("lastName").addEventListener('change', function() {
     if(this.value !== "" || this.value !== " "){
         lastNameCheck = true;
     }
 });
 
-document.getElementById("emailone").addEventListener('change', function() {
+document.getElementById("emailOne").addEventListener('change', function() {
     if(this.value !== "" || this.value !== " "){
         emailOne = this.value;
         compareEmail();
     }
 });
 
-document.getElementById("emailtwo").addEventListener('change', function() {
+document.getElementById("emailTwo").addEventListener('change', function() {
     if(this.value !== "" || this.value !== " "){
         emailTwo = this.value;
         compareEmail();
     }
 });
 
-document.getElementById("biosbon").addEventListener('change', function() {
+document.getElementById("biosBon").addEventListener('change', function() {
     if(this.checked){
         biosBon = true;
     } else {
@@ -207,13 +207,13 @@ document.getElementById("terms").addEventListener('change', function() {
 function seatChooser(number){
     
     if(document.getElementById("seat"+ number).checked){
-        document.getElementById("seatimg"+ number).src = "assets/img/seatselected.png";
+        document.getElementById("seatImg"+ number).src = "assets/img/seatselected.png";
         allSeats = seatChecker();
         seatsText(allSeats);
         seatCounter++;
         checkAll();
     } else {
-        document.getElementById("seatimg"+ number).src = "assets/img/seatfree.png";
+        document.getElementById("seatImg"+ number).src = "assets/img/seatfree.png";
         allSeats = seatChecker();
         seatsText(allSeats);
         seatCounter--;
@@ -243,9 +243,9 @@ function seatsText(array){
 
 function checkAll() {
     if(dateCheck && timeCheck && allTickets > 0 && seatCounter == allTickets && lastNameCheck && emailCheck && paymentCheck && termsCheck){
-        document.getElementById("topayment").disabled = false;
+        document.getElementById("toPayment").disabled = false;
     } else {
-        document.getElementById("topayment").disabled = true;
+        document.getElementById("toPayment").disabled = true;
     }
 }
 

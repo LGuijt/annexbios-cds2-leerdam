@@ -27,7 +27,7 @@ body {
   display: grid;
   grid-template-columns: 0.25fr 1fr 1fr 1fr 1fr;
 }
-#upperHalf2 #footerinfo {
+#upperHalf2 #footerInfo {
   height: 46vh;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
@@ -36,41 +36,41 @@ body {
   padding-top: 5%;
   max-width: 90%;
 }
-#upperHalf2 #footerinfo img {
+#upperHalf2 #footerInfo img {
   width: 70%;
 }
-#upperHalf2 #footerinfo a {
+#upperHalf2 #footerInfo a {
   background-color: white;
   text-decoration: none;
   color: #707070;
   padding: 5px 10px;
   width: 90px;
 }
-#upperHalf2 #footernav, #upperHalf2 #footersocial {
+#upperHalf2 #footerNav, #upperHalf2 #footerSocial {
   display: grid;
   align-content: center;
   grid-template-rows: 1fr 1fr 1fr;
 }
-#upperHalf2 #footernav #navtop, #upperHalf2 #footernav #socialtop, #upperHalf2 #footersocial #navtop, #upperHalf2 #footersocial #socialtop {
+#upperHalf2 #footerNav #navTop, #upperHalf2 #footerNav #socialTop, #upperHalf2 #footerSocial #navTop, #upperHalf2 #footerSocial #socialTop {
   font-size: 25px;
   font-family: "latobold";
   padding-left: 5%;
   align-self: flex-end;
   padding-bottom: 4%;
 }
-#upperHalf2 #footernav #navlinks, #upperHalf2 #footernav #sociallinks, #upperHalf2 #footersocial #navlinks, #upperHalf2 #footersocial #sociallinks {
+#upperHalf2 #footerNav #navLinks, #upperHalf2 #footerNav #socialLinks, #upperHalf2 #footerSocial #navLinks, #upperHalf2 #footerSocial #socialLinks {
   display: grid;
   padding-top: 4%;
   padding-left: 5%;
 }
-#upperHalf2 #footernav a, #upperHalf2 #footersocial a {
+#upperHalf2 #footerNav a, #upperHalf2 #footerSocial a {
   color: white;
   text-decoration: none;
 }
-#upperHalf2 #footernav img, #upperHalf2 #footersocial img {
+#upperHalf2 #footerNav img, #upperHalf2 #footerSocial img {
   height: 35px;
 }
-#upperHalf2 #footernav #sociallinks, #upperHalf2 #footersocial #sociallinks {
+#upperHalf2 #footerNav #socialLinks, #upperHalf2 #footerSocial #socialLinks {
   grid-template-columns: 1fr 1fr 1fr 4fr;
 }
 #upperHalf2 #track {

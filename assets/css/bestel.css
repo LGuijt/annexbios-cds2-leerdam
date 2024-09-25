@@ -12,7 +12,7 @@ body {
   overflow-x: hidden;
 }
 
-#o-parentcontainer {
+#oParentContainer {
   width: 100%;
   top: 30vh;
   position: relative;
@@ -40,19 +40,19 @@ body {
   padding: 1%;
 }
 
-#datetime {
+#dateTime {
   display: flex;
   grid-column: 1/span 2;
   margin-bottom: 2%;
 }
-#datetime #filmname {
+#dateTime #filmName {
   background-color: white;
   margin-right: 15px;
   height: 3vh;
   padding: 1vh;
   color: #B97D46;
 }
-#datetime select {
+#dateTime select {
   background-color: white;
   height: 5vh;
   padding: 1vh;
@@ -68,19 +68,19 @@ body {
 #steps #step1 {
   display: grid;
 }
-#steps .steptitle {
+#steps .stepTitle {
   color: #B97D46;
   font-size: 30px;
   padding: 2%;
 }
-#steps #tickettable {
+#steps #ticketTable {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   border-bottom: 2px solid #707070;
   width: 95%;
   justify-self: center;
 }
-#steps #pricetop {
+#steps #priceTop {
   display: grid;
   grid-template-columns: 8fr 1fr 1fr;
   border-bottom: 2px solid #707070;
@@ -107,13 +107,13 @@ body {
 #steps #voucher input {
   border: 1px solid #B97D46;
 }
-#steps #voucher #addvoucher {
+#steps #voucher #addVoucher {
   background-color: #B97D46;
   color: white;
   border: none;
   padding: 1vh;
 }
-#steps #controlbox {
+#steps #controlBox {
   border: 3px solid #B97D46;
   width: 93%;
   margin-left: 2%;
@@ -124,34 +124,34 @@ body {
   color: #707070;
   max-height: 40vh;
 }
-#steps #controlbox #boldchairs {
+#steps #controlBox #boldChairs {
   max-height: 5vh;
 }
-#steps #controlbox #controlposter {
+#steps #controlBox #controlPoster {
   grid-row: 1/span 7;
   grid-column: 1;
   height: 40vh;
   margin-right: 2%;
 }
-#steps #controlbox #controlposter img {
+#steps #controlBox #controlPoster img {
   height: 100%;
 }
-#steps #controlbox .kijkwijzer {
+#steps #controlBox .kijkwijzer {
   height: 7vh;
 }
-#steps #controlbox #controltitle {
+#steps #controlBox #controlTitle {
   font-size: 30px;
   grid-row: 1;
   grid-column: 2;
   align-self: center;
 }
-#steps #controlbox .bold {
+#steps #controlBox .bold {
   font-family: "latobold";
 }
-#steps #controlbox #controltotal {
+#steps #controlBox #controlTotal {
   align-self: center;
 }
-#steps #userinfo {
+#steps #userInfo {
   display: grid;
   width: 50%;
   margin-left: 2%;
@@ -159,22 +159,22 @@ body {
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 10px;
 }
-#steps #userinfo input {
+#steps #userInfo input {
   border: 2px solid #B97D46;
   padding: 1vh;
 }
-#steps #userinfo #firstname {
+#steps #userInfo #firstName {
   grid-column: 1;
   grid-row: 1;
 }
-#steps #userinfo #lastname {
+#steps #userInfo #lastName {
   grid-column: 2;
   grid-row: 1;
 }
-#steps #userinfo .email {
+#steps #userInfo .email {
   grid-column: 1/span 2;
 }
-#steps #paymethod {
+#steps #payMethod {
   display: grid;
   width: 50%;
   margin-left: 2%;
@@ -197,44 +197,44 @@ body {
   accent-color: #B97D46;
 }
 
-#filminfo {
+#filmInfo {
   background-color: white;
   height: auto;
   max-height: 100vh;
   display: none;
 }
-#filminfo #infoimg {
+#filmInfo #infoImg {
   height: 300px;
   width: 200px;
   background-color: hotpink;
 }
-#filminfo #filmdescription {
+#filmInfo #filmDescription {
   padding: 10%;
 }
-#filminfo #infotitel {
+#filmInfo #infoTitel {
   font-size: 25px;
   color: #707070;
   padding-bottom: 2%;
 }
-#filminfo #infodate {
+#filmInfo #infoDate {
   font-size: 17px;
   padding-bottom: 5%;
 }
-#filminfo #inforating {
+#filmInfo #infoRating {
   display: grid;
   height: 10vh;
 }
-#filminfo #inforating img {
+#filmInfo #infoRating img {
   height: 100%;
 }
-#filminfo #infodescription {
+#filmInfo #infoDescription {
   font-size: 15px;
 }
 
-#orderbutton {
+#orderButton {
   display: none;
 }
-#orderbutton input[type=submit] {
+#orderButton input[type=submit] {
   background-color: #B97D46;
   color: white;
   border: none;
@@ -251,17 +251,17 @@ body {
   flex-direction: column;
 }
 
-#placecontainer {
+#placeContainer {
   width: 40vw;
   align-self: center;
   min-height: 40vh;
   display: grid;
   grid-template-rows: 10vh auto;
 }
-#placecontainer #screen {
+#placeContainer #screen {
   width: 100%;
 }
-#placecontainer #seatscontainer {
+#placeContainer #seatsContainer {
   display: grid;
   grid-template-columns: 5vh 5vh 5vh 5vh 5vh 5vh 5vh 5vh;
   row-gap: 1vh;
@@ -269,40 +269,40 @@ body {
   margin: 5px;
   justify-content: center;
 }
-#placecontainer #seatscontainer .seat {
+#placeContainer #seatsContainer .seat {
   height: 5vh;
   width: 5vh;
 }
-#placecontainer #seatscontainer .seat input[type=checkbox] {
+#placeContainer #seatsContainer .seat input[type=checkbox] {
   display: none;
 }
-#placecontainer #seatscontainer .seat img {
+#placeContainer #seatsContainer .seat img {
   height: 100%;
   width: 100%;
 }
-#placecontainer #legendcontainer {
+#placeContainer #legendContainer {
   display: grid;
   grid-template-columns: auto auto auto;
 }
-#placecontainer .legenditem {
+#placeContainer .legendItem {
   max-height: 5vh;
   color: white;
   margin: 5px;
   padding: 5px;
   text-align: center;
 }
-#placecontainer .legenditem p {
+#placeContainer .legendItem p {
   margin: 0;
 }
-#placecontainer #legendfree {
+#placeContainer #legendFree {
   background-color: #B97D46;
   grid-column: 1;
 }
-#placecontainer #legendtaken {
+#placeContainer #legendTaken {
   background-color: #95520B;
   grid-column: 2;
 }
-#placecontainer #legendselected {
+#placeContainer #legendSelected {
   background-color: #DC7B0A;
   grid-column: 3;
 }/*# sourceMappingURL=bestel.css.map */

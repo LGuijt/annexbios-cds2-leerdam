@@ -25,25 +25,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $playtime = strtotime($playtime);
 }
 ?>
-<div id="o-parentcontainer">
+<div id="oParentContainer">
     <form id="container" method="post" action="./api/seats/seatreservation.php">
         <div id="title">TICKETS BESTELLEN</div>
-        <div id="datetime">
-            <div id="filmname"><?= $filmname ?></div>
-            <select name="date" id="o-date">
+        <div id="dateTime">
+            <div id="filmName"><?= $filmname ?></div>
+            <select name="date" id="oDate">
                 <option value="start">DATUM</option>
                 <option value="<?= date("Y-m-d", $playtime); ?>"><?= date("d-m", $playtime) ?></option>
             </select>
-            <select name="time" id="o-time">
+            <select name="time" id="oTime">
                 <option value="start">TIJD</option>
                 <option value="<?= date("H:i:s", $playtime) ?>"><?= date("H:i", $playtime) ?></option>
             </select>
         </div>
         <div id="steps">
             <div id="step1">
-                <div class="steptitle">STAP 1: KIES JE TICKET</div>
-                <div id="tickettable">
-                    <div id="pricetop">
+                <div class="stepTitle">STAP 1: KIES JE TICKET</div>
+                <div id="ticketTable">
+                    <div id="priceTop">
                         <div>TYPE</div>
                         <div>PRIJS</div>
                         <div>AANTAL</div>
@@ -90,26 +90,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <div id="voucher">
                     <div>VOUCHERCODE</div>
-                    <input type="text" name="voucher" placeholder="code" id="vouchercode">
-                    <div id="addvoucher">TOEVOEGEN</div>
+                    <input type="text" name="voucher" placeholder="code" id="voucherCode">
+                    <div id="addVoucher">TOEVOEGEN</div>
                 </div>
             </div>
             <div id="step2">
-                <div class="steptitle">STAP 2: KIES JE STOEL</div>
-                <div id="placecontainer">
+                <div class="stepTitle">STAP 2: KIES JE STOEL</div>
+                <div id="placeContainer">
                     <?php
                     // var_dump($chairs);
                     ?>
                     <img id="screen" src="./assets/img/filmdoek.png">
-                    <div id="seatscontainer">
+                    <div id="seatsContainer">
                         <?php
                         foreach ($chairs as $chair) {
                             if ($chair['available'] == true) {
                                 ?>
                                 <label class="seat">
-                                    <input type="checkbox" id="seat<?= $chair['place'] ?>" name="seat[]" class="seatsinput"
+                                    <input type="checkbox" id="seat<?= $chair['place'] ?>" name="seat[]" class="seatsInput"
                                         value="<?= $chair['place'] ?>" onchange="seatChooser(<?= $chair['place'] ?>)">
-                                    <img id="seatimg<?= $chair['place'] ?>" src="./assets/img/seatfree.png">
+                                    <img id="seatImg<?= $chair['place'] ?>" src="./assets/img/seatfree.png">
                                 </label>
                                 <?php
                             } else {
@@ -124,25 +124,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         }
                         ?>
                     </div>
-                    <div id="legendcontainer">
-                        <div id="legendfree" class="legenditem">
+                    <div id="legendContainer">
+                        <div id="legendFree" class="legendItem">
                             <p>Vrij</p>
                         </div>
-                        <div id="legendtaken" class="legenditem">
+                        <div id="legendTaken" class="legendItem">
                             <p>Bezet</p>
                         </div>
-                        <div id="legendselected" class="legenditem">
+                        <div id="legendSelected" class="legendItem">
                             <p>Jouw Selectie</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="step3">
-                <div class="steptitle">STAP 3: CONTROLEER JE BESTELLING</div>
-                <div id="controlbox">
-                    <div id="controlposter"><img alt="plaatje van de film" src=<?= $image ?>></div>
+                <div class="stepTitle">STAP 3: CONTROLEER JE BESTELLING</div>
+                <div id="controlBox">
+                    <div id="controlPoster"><img alt="plaatje van de film" src=<?= $image ?>></div>
                     <!-- image is 160x240 -->
-                    <div id="controltitle"><span class="bold"><?= $filmname ?></span></div>
+                    <div id="controlTitle"><span class="bold"><?= $filmname ?></span></div>
                     <div>
                         <?php
                         for ($i = 0; $i < count($kijkwijzers); $i++) {
@@ -154,27 +154,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                     <div><span class="bold">Bioscoop:</span> Leerdam (zaal 2)</div>
                     <div><span class="bold">Wanneer: </span><span id="when"></span></div>
-                    <div id="boldchairs"><span class="bold">Stoelen:</span> <span id="rows"></span></div>
-                    <div><span class="bold">Tickets: </span><span id="alltickets"></span></div>
-                    <div id="controltotal"><span class="bold">Totaal <span id="totaltickets"></span>
-                            ticket(s):</span><span id="totalprice"></span> </div>
+                    <div id="boldChairs"><span class="bold">Stoelen:</span> <span id="rows"></span></div>
+                    <div><span class="bold">Tickets: </span><span id="allTickets"></span></div>
+                    <div id="controlTotal"><span class="bold">Totaal <span id="totalTickets"></span>
+                            ticket(s):</span><span id="totalPrice"></span> </div>
                 </div>
             </div>
             <div id="step4">
-                <div class="steptitle">STAP 4: Vul je gegevens</div>
-                <div id="userinfo">
-                    <input type="text" name="firstname" placeholder="Voornaam" id="firstname"></p>
-                    <input type="text" name="lastname" placeholder="Achternaam" id="lastname"></d>
+                <div class="stepTitle">STAP 4: Vul je gegevens</div>
+                <div id="userInfo">
+                    <input type="text" name="firstname" placeholder="Voornaam" id="firstName"></p>
+                    <input type="text" name="lastname" placeholder="Achternaam" id="lastName"></d>
                     <input type="text" name="email" placeholder="E-mailadres*" class="email" style="grid-row: 2;"
-                        id="emailone"></d>
+                        id="emailOne"></d>
                     <input type="text" name="emailtwo" placeholder="E-mailadres*" class="email" style="grid-row: 3;"
-                        id="emailtwo"></d>
+                        id="emailTwo"></d>
                 </div>
             </div>
             <div id="step5">
-                <div class="steptitle">STAP 5: KIES JE BETAALWIJZE</div>
-                <div id="paymethod">
-                    <input type="checkbox" name="paymethod" value="biosbon" id="biosbon"><img alt="bioscoopbon"
+                <div class="stepTitle">STAP 5: KIES JE BETAALWIJZE</div>
+                <div id="payMethod">
+                    <input type="checkbox" name="paymethod" value="biosbon" id="biosBon"><img alt="bioscoopbon"
                         src="./assets/img/biosbon.png">
                     <input type="checkbox" name="paymethod" value="maestro" id="maestro"><img alt="maestro"
                         src="./assets/img/maestro.png">
@@ -187,12 +187,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             </div>
         </div>
-        <div id="filminfo">
-            <div><img id="infoimg" alt="filmposter" src=<?= $image ?>></div>
+        <div id="filmInfo">
+            <div><img id="infoImg" alt="filmposter" src=<?= $image ?>></div>
             <!-- 200x300 -->
-            <div id="filmdescription">
-                <div id="infotitel"><?= $filmname ?></div>
-                <div id="inforatings"><?php
+            <div id="filmDescription">
+                <div id="infoTitel"><?= $filmname ?></div>
+                <div id="infoRatings"><?php
                 $filledStars = floor($movie["rating"] / 2);
                 $unfilledStars = 5 - $filledStars;
                 for ($k = 0; $k < $filledStars; $k++) { ?>
@@ -204,13 +204,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
                 ?>
                 </div>
-                <div id="infodate">Release: <?= $releasedate ?></div>
-                <div id="infodescription"><?= $description ?></div>
+                <div id="infoDate">Release: <?= $releasedate ?></div>
+                <div id="infoDescription"><?= $description ?></div>
             </div>
         </div>
         <input type="hidden" name="filmid" value="<?= $locationId ?>">
-        <div id="orderbutton">
-            <input id="topayment" type="submit" value="AFREKENEN" disabled>
+        <div id="orderButton">
+            <input id="toPayment" type="submit" value="AFREKENEN" disabled>
         </div>
     </form>
 </div>

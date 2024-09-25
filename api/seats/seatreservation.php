@@ -36,22 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
 
     }
-
-
-    // $data = [
-    //     'movie_id' => $_POST['filmid'],
-    //     'place_id' => $_POST['seat'],
-    //     'name' => $name,
-    //     'email' => $_POST['email'],
-    // ];
-
-    // Set cURL options 
-
-
-    // Close cURL session 
     curl_close($ch);
-
-    // Display the response 
     echo $response;
 
 }

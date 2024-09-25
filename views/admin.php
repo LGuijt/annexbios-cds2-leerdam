@@ -12,41 +12,41 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['delete'])) {
         // var_dump($_POST['vouchers']);
         foreach ($_POST['vouchers'] as $voucher) {
-            $deletevoucher = $con->prepare("DELETE FROM vouchers WHERE id = ?");
-            $deletevoucher->bind_param("i", $voucher);
-            $deletevoucher->execute();
+            $deleteVoucher = $con->prepare("DELETE FROM vouchers WHERE id = ?");
+            $deleteVoucher->bind_param("i", $voucher);
+            $deleteVoucher->execute();
         }
     } else if (isset($_POST['add'])) {
         echo "add";
-        $createvoucher = $con->prepare("INSERT INTO vouchers (code, amount) VALUES (?, ?)");
-        $createvoucher->bind_param("si", $code, $amount);
+        $createVoucher = $con->prepare("INSERT INTO vouchers (code, amount) VALUES (?, ?)");
+        $createVoucher->bind_param("si", $code, $amount);
         $code = $_POST['vouchercode'];
         $amount = $_POST['discount'];
-        $createvoucher->execute();
+        $createVoucher->execute();
     }
 }
 
-$readvoucher = $con->prepare("SELECT id, code, amount FROM vouchers");
-$readvoucher->bind_result($rId, $rCode, $rAmount);
-$readvoucher->execute();
+$readVoucher = $con->prepare("SELECT id, code, amount FROM vouchers");
+$readVoucher->bind_result($rId, $rCode, $rAmount);
+$readVoucher->execute();
 ?>
 
 <?php include 'core/header.php'; ?>
-<div id="a-parentcontainer">
-    <div class="panel-container">
-        <div class="panel-title">All vouchers</div>
+<div id="aParentContainer">
+    <div class="panelContainer">
+        <div class="panelTitle">All vouchers</div>
         <form action="admin" method="post" id="formD">
-            <div class="voucher-container">
-                <div class="voucherdel">
+            <div class="voucherContainer">
+                <div class="voucherDel">
                     <div></div>
                     <spam>Voucher_ID</spam>
                     <spam>Code</spam>
                     <spam>Korting</spam>
                 </div>
                 <?php
-                while ($readvoucher->fetch()) {
+                while ($readVoucher->fetch()) {
                     ?>
-                    <div class="voucherdel">
+                    <div class="voucherDel">
                         <input type="checkbox" name="vouchers[]" value="<?= $rId ?>">
                         <span><?= $rId ?></span>
                         <span><?= $rCode ?></span>
@@ -59,10 +59,10 @@ $readvoucher->execute();
             <input type="submit" name="delete" value="Delete Selected Vouchers" form="formD">
         </form>
     </div>
-    <div class="panel-container">
-        <div class="panel-title">Add new voucher</div>
+    <div class="panelContainer">
+        <div class="panelTitle">Add new voucher</div>
         <form action="admin" method="post" id="formC">
-            <div class="voucher-container" id="voucheradd">
+            <div class="voucherContainer" id="voucherAdd">
                 <label for="vouchercode">Vouchercode</label>
                 <input type="text" name="vouchercode" id="vouchercode">
                 <label for="discount">Discount</label>

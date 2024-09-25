@@ -1,4 +1,4 @@
-#a-parentcontainer {
+#aParentContainer {
   height: 80vh;
   position: relative;
   margin-top: 30vh;
@@ -7,7 +7,7 @@
   background-color: black;
 }
 
-.panel-container {
+.panelContainer {
   height: 80%;
   width: 80%;
   align-self: center;
@@ -15,23 +15,23 @@
   background-color: white;
 }
 
-.panel-title {
+.panelTitle {
   font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   margin-top: 1rem;
 }
 
-.voucher-container {
+.voucherContainer {
   display: grid;
   margin-top: 1rem;
 }
 
-#voucheradd {
+#voucherAdd {
   margin: 10px;
 }
 
-.voucherdel {
+.voucherDel {
   display: grid;
   grid-template-columns: 0.5fr 1fr 1fr 1fr;
   grid-gap: 10px;

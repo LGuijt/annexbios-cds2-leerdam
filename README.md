@@ -1,0 +1,3 @@
+Github link is = "https://github.com/LGuijt/annexbios-cds2-leerdam"
+
+Om de website te kunnen zien, klik op de github link, klik op "code", dan "download ZIP". Maak ondertussen in je xxamp/htdocs file een nieuwe folder aan. Als de ZIP download klaar is, pak je hem in de nieuwe folder uit. Daarna open je de uitgepakte folder met VSCode. Als je de database wilt gebruiken, kopieer de voucher_code(1).sql, ga naar je PHPMyadmin, maak een nieuwe database aan met de naam voucher_code, ga daarna in de taskbar bovenaan naar SQL, plak de code in de sql file daarin en klik op "go"
